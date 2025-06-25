@@ -1,4 +1,0 @@
-User-agent: *
-Allow: /
-
-Sitemap: https://nolandex.my.id/sitemap.xml
