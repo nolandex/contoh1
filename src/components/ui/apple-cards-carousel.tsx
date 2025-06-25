@@ -12,7 +12,7 @@ import {
   IconX,
 } from "@tabler/icons-react";
 import { cn } from "@/lib/utils";
-import { AnimatePresence, motion } from "framer-motion"; // Corrected import
+import { AnimatePresence, motion } from "framer-motion";
 import Image, { ImageProps } from "next/image";
 import { useOutsideClick } from "@/hooks/use-outside-click";
 
@@ -266,6 +266,7 @@ export const Card = ({
   );
 };
 
+// --- KODE YANG DI REVISI ---
 export const BlurImage = ({
   height,
   width,
@@ -273,16 +274,13 @@ export const BlurImage = ({
   className,
   alt,
   ...rest
-}: Omit<ImageProps, 'src'> & { src: string }) => { // Type assertion for src
-  const [isLoading, setLoading] = useState(true);
+}: Omit<ImageProps, 'src'> & { src: string }) => {
   return (
     <Image
       className={cn(
         "transition duration-300",
-        isLoading ? "blur-sm" : "blur-0",
         className
       )}
-      onLoad={() => setLoading(false)}
       src={src}
       width={width || 100}
       height={height || 100}
