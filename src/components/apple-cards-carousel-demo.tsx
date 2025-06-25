@@ -31,7 +31,7 @@ const DummyContent: React.FC<DummyContentProps> = ({ title, customText }) => {
         {customText}
       </p>
       <img
-        src="/1.jpg" // Ganti dengan path lokal sesuai card
+        src="/1.jpeg" // Diubah dari .jpg ke .jpeg
         alt={`${title} mockup`}
         height={500}
         width={500}
@@ -50,7 +50,7 @@ const data = [
   {
     category: "Artificial Intelligence",
     title: "You can do more with AI.",
-    src: "/1.jpg", // Gambar lokal
+    src: "/1.jpeg", // Diubah dari .jpg ke .jpeg
     content: (
       <DummyContent
         title="You can do more with AI."
@@ -61,7 +61,7 @@ const data = [
   {
     category: "Productivity",
     title: "Enhance your productivity.",
-    src: "/2.jpg", // Gambar lokal
+    src: "/2.jpeg", // Diubah dari .jpg ke .jpeg
     content: (
       <DummyContent
         title="Enhance your productivity."
@@ -72,7 +72,7 @@ const data = [
   {
     category: "Product",
     title: "Launching the new Apple Vision Pro.",
-    src: "/3.jpg", // Gambar lokal
+    src: "/3.jpeg", // Diubah dari .jpg ke .jpeg
     content: (
       <DummyContent
         title="Launching the new Apple Vision Pro."
@@ -83,7 +83,7 @@ const data = [
   {
     category: "Product",
     title: "Maps for your iPhone 15 Pro Max.",
-    src: "/4.jpg", // Gambar lokal
+    src: "/4.jpeg", // Diubah dari .jpg ke .jpeg
     content: (
       <DummyContent
         title="Maps for your iPhone 15 Pro Max."
@@ -94,7 +94,7 @@ const data = [
   {
     category: "iOS",
     title: "Photography just got better.",
-    src: "/5.jpg", // Gambar lokal
+    src: "/5.jpeg", // Diubah dari .jpg ke .jpeg
     content: (
       <DummyContent
         title="Photography just got better."
@@ -105,7 +105,7 @@ const data = [
   {
     category: "Hiring",
     title: "Hiring for a Staff Software Engineer",
-    src: "/6.jpg", // Gambar lokal
+    src: "/6.jpeg", // Diubah dari .jpg ke .jpeg
     content: (
       <DummyContent
         title="Hiring for a Staff Software Engineer"
