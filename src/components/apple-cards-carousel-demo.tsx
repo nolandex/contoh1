@@ -31,7 +31,7 @@ const DummyContent: React.FC<DummyContentProps> = ({ title, customText }) => {
         {customText}
       </p>
       <img
-        src="https://www.google.com/images/branding/googlemic/2x/googlemic_color_24dp.png" // Ganti dengan link Google Images yang valid
+        src="/1.jpg" // Ganti dengan path lokal sesuai card
         alt={`${title} mockup`}
         height={500}
         width={500}
@@ -39,7 +39,7 @@ const DummyContent: React.FC<DummyContentProps> = ({ title, customText }) => {
         onError={(e) => {
           const target = e.target as HTMLImageElement;
           target.style.display = "none"; // Sembunyikan jika gagal
-          console.error("Gambar gagal dimuat. URL:", target.src, "Error:", e); // Debug lebih detail
+          console.error("Gambar gagal dimuat. URL:", target.src, "Error:", e);
         }}
       />
     </div>
@@ -50,7 +50,7 @@ const data = [
   {
     category: "Artificial Intelligence",
     title: "You can do more with AI.",
-    src: "https://t0.gstatic.com/images?q=tbn:ANd9GcT8jM9n3wP4f5f5f5f5f5f5f5f5f5f5f5", // Ganti dengan link Google Images yang valid
+    src: "/1.jpg", // Gambar lokal
     content: (
       <DummyContent
         title="You can do more with AI."
@@ -61,7 +61,7 @@ const data = [
   {
     category: "Productivity",
     title: "Enhance your productivity.",
-    src: "https://t0.gstatic.com/images?q=tbn:ANd9GcT8jM9n3wP4f5f5f5f5f5f5f5f5f5f5", // Ganti dengan link Google Images yang valid
+    src: "/2.jpg", // Gambar lokal
     content: (
       <DummyContent
         title="Enhance your productivity."
@@ -72,7 +72,7 @@ const data = [
   {
     category: "Product",
     title: "Launching the new Apple Vision Pro.",
-    src: "https://t0.gstatic.com/images?q=tbn:ANd9GcT8jM9n3wP4f5f5f5f5f5f5f5f5f5f5", // Ganti dengan link Google Images yang valid
+    src: "/3.jpg", // Gambar lokal
     content: (
       <DummyContent
         title="Launching the new Apple Vision Pro."
@@ -83,7 +83,7 @@ const data = [
   {
     category: "Product",
     title: "Maps for your iPhone 15 Pro Max.",
-    src: "https://t0.gstatic.com/images?q=tbn:ANd9GcT8jM9n3wP4f5f5f5f5f5f5f5f5f5f5", // Ganti dengan link Google Images yang valid
+    src: "/4.jpg", // Gambar lokal
     content: (
       <DummyContent
         title="Maps for your iPhone 15 Pro Max."
@@ -94,7 +94,7 @@ const data = [
   {
     category: "iOS",
     title: "Photography just got better.",
-    src: "https://t0.gstatic.com/images?q=tbn:ANd9GcT8jM9n3wP4f5f5f5f5f5f5f5f5f5f5", // Ganti dengan link Google Images yang valid
+    src: "/5.jpg", // Gambar lokal
     content: (
       <DummyContent
         title="Photography just got better."
@@ -105,7 +105,7 @@ const data = [
   {
     category: "Hiring",
     title: "Hiring for a Staff Software Engineer",
-    src: "https://t0.gstatic.com/images?q=tbn:ANd9GcT8jM9n3wP4f5f5f5f5f5f5f5f5f5f5", // Ganti dengan link Google Images yang valid
+    src: "/6.jpg", // Gambar lokal
     content: (
       <DummyContent
         title="Hiring for a Staff Software Engineer"
