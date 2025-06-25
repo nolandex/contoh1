@@ -33,8 +33,9 @@ const DummyContent: React.FC<DummyContentProps> = ({ title, customText }) => {
       <img
         src="/1.jpeg" // Gambar lokal
         alt={`${title} mockup`}
-        // Hapus height dan width tetap, biar gambar asli
-        className="mx-auto object-contain max-w-full max-h-[500px]" // Batasi tinggi maksimum agar tidak terlalu besar
+        // Hapus semua pengaturan ukuran yang memaksa resize
+        style={{ maxWidth: "100%", height: "auto" }} // Tampilkan sesuai ukuran asli
+        className="mx-auto" // Hanya pusatkan, tanpa resize
         onError={(e) => {
           const target = e.target as HTMLImageElement;
           target.style.display = "none"; // Sembunyikan jika gagal
