@@ -1,6 +1,7 @@
 "use client";
 
 import React from "react";
+import Image from "next/image"; // Imported next/image
 import { Carousel, Card } from "@/components/ui/apple-cards-carousel";
 
 export default function AppleCardsCarouselDemo() {
@@ -10,7 +11,7 @@ export default function AppleCardsCarouselDemo() {
 
   return (
     <div className="w-full h-full py-20">
-      <h2 className="max-w-7xl pl-4 mx-auto text-xl md:text-5xl font-bold text-neutral-800 dark:text-neutral-200 font-sans">
+      <h2 className="max-w-7xl mx-auto pl-4 text-xl md:text-5xl font-bold text-neutral-800 dark:text-neutral-200 font-sans">
         Get to know your iSad.
       </h2>
       <Carousel items={cards} />
@@ -18,19 +19,25 @@ export default function AppleCardsCarouselDemo() {
   );
 }
 
-const DummyContent = ({ title, customText }) => {
+interface DummyContentProps {
+  title: string;
+  customText: string;
+}
+
+const DummyContent: React.FC<DummyContentProps> = ({ title, customText }) => {
   return (
     <div className="bg-[#F5F5F7] dark:bg-neutral-800 p-8 md:p-14 rounded-3xl mb-4">
       <h3 className="text-xl md:text-3xl font-bold text-neutral-700 dark:text-neutral-200 mb-4">{title}</h3>
       <p className="text-neutral-600 dark:text-neutral-400 text-base md:text-2xl font-sans max-w-3xl mx-auto">
         {customText}
       </p>
-      <img
+      <Image
         src="https://images.pexels.com/photos/577585/pexels-photo-577585.jpeg"
         alt={`${title} mockup`}
         height={500}
         width={500}
         className="md:w-1/2 md:h-1/2 h-full w-full mx-auto object-contain"
+        priority={false}
       />
     </div>
   );
