@@ -31,11 +31,10 @@ const DummyContent: React.FC<DummyContentProps> = ({ title, customText }) => {
         {customText}
       </p>
       <img
-        src="/1.jpeg" // Diubah dari .jpg ke .jpeg
+        src="/1.jpeg" // Gambar lokal
         alt={`${title} mockup`}
-        height={500}
-        width={500}
-        className="md:w-1/2 md:h-1/2 h-full w-full mx-auto object-contain"
+        // Hapus height dan width tetap, biar gambar asli
+        className="mx-auto object-contain max-w-full max-h-[500px]" // Batasi tinggi maksimum agar tidak terlalu besar
         onError={(e) => {
           const target = e.target as HTMLImageElement;
           target.style.display = "none"; // Sembunyikan jika gagal
@@ -50,7 +49,7 @@ const data = [
   {
     category: "Artificial Intelligence",
     title: "You can do more with AI.",
-    src: "/1.jpeg", // Diubah dari .jpg ke .jpeg
+    src: "/1.jpeg", // Gambar lokal
     content: (
       <DummyContent
         title="You can do more with AI."
@@ -61,7 +60,7 @@ const data = [
   {
     category: "Productivity",
     title: "Enhance your productivity.",
-    src: "/2.jpeg", // Diubah dari .jpg ke .jpeg
+    src: "/2.jpeg", // Gambar lokal
     content: (
       <DummyContent
         title="Enhance your productivity."
@@ -72,7 +71,7 @@ const data = [
   {
     category: "Product",
     title: "Launching the new Apple Vision Pro.",
-    src: "/3.jpeg", // Diubah dari .jpg ke .jpeg
+    src: "/3.jpeg", // Gambar lokal
     content: (
       <DummyContent
         title="Launching the new Apple Vision Pro."
@@ -83,7 +82,7 @@ const data = [
   {
     category: "Product",
     title: "Maps for your iPhone 15 Pro Max.",
-    src: "/4.jpeg", // Diubah dari .jpg ke .jpeg
+    src: "/4.jpeg", // Gambar lokal
     content: (
       <DummyContent
         title="Maps for your iPhone 15 Pro Max."
@@ -94,7 +93,7 @@ const data = [
   {
     category: "iOS",
     title: "Photography just got better.",
-    src: "/5.jpeg", // Diubah dari .jpg ke .jpeg
+    src: "/5.jpeg", // Gambar lokal
     content: (
       <DummyContent
         title="Photography just got better."
@@ -105,7 +104,7 @@ const data = [
   {
     category: "Hiring",
     title: "Hiring for a Staff Software Engineer",
-    src: "/6.jpeg", // Diubah dari .jpg ke .jpeg
+    src: "/6.jpeg", // Gambar lokal
     content: (
       <DummyContent
         title="Hiring for a Staff Software Engineer"
