@@ -31,7 +31,7 @@ const DummyContent: React.FC<DummyContentProps> = ({ title, customText }) => {
         {customText}
       </p>
       <img
-        src="https://www.google.com/images/branding/googlemic/2x/googlemic_color_24dp.png" // Ganti dengan link gambar yang valid dari Google Images
+        src="https://www.google.com/images/branding/googlemic/2x/googlemic_color_24dp.png" // Ganti dengan link Google Images yang valid
         alt={`${title} mockup`}
         height={500}
         width={500}
@@ -50,7 +50,7 @@ const data = [
   {
     category: "Artificial Intelligence",
     title: "You can do more with AI.",
-    src: "https://www.google.com/images/branding/googlemic/2x/googlemic_color_24dp.png", // Ganti dengan link Google Images
+    src: "https://t0.gstatic.com/images?q=tbn:ANd9GcQf4z2v9z3x5f5f5f5f5f5f5f5f5f5f5f5f5", // Ganti dengan link Google Images yang valid
     content: (
       <DummyContent
         title="You can do more with AI."
@@ -61,7 +61,7 @@ const data = [
   {
     category: "Productivity",
     title: "Enhance your productivity.",
-    src: "https://www.google.com/images/branding/googlemic/2x/googlemic_color_24dp.png", // Ganti dengan link Google Images
+    src: "https://t0.gstatic.com/images?q=tbn:ANd9GcQf4z2v9z3x5f5f5f5f5f5f5f5f5f5f5f5", // Ganti dengan link Google Images yang valid
     content: (
       <DummyContent
         title="Enhance your productivity."
@@ -72,7 +72,7 @@ const data = [
   {
     category: "Product",
     title: "Launching the new Apple Vision Pro.",
-    src: "https://www.google.com/images/branding/googlemic/2x/googlemic_color_24dp.png", // Ganti dengan link Google Images
+    src: "https://t0.gstatic.com/images?q=tbn:ANd9GcQf4z2v9z3x5f5f5f5f5f5f5f5f5f5f5f5", // Ganti dengan link Google Images yang valid
     content: (
       <DummyContent
         title="Launching the new Apple Vision Pro."
@@ -83,7 +83,7 @@ const data = [
   {
     category: "Product",
     title: "Maps for your iPhone 15 Pro Max.",
-    src: "https://www.google.com/images/branding/googlemic/2x/googlemic_color_24dp.png", // Ganti dengan link Google Images
+    src: "https://t0.gstatic.com/images?q=tbn:ANd9GcQf4z2v9z3x5f5f5f5f5f5f5f5f5f5f5f5", // Ganti dengan link Google Images yang valid
     content: (
       <DummyContent
         title="Maps for your iPhone 15 Pro Max."
@@ -94,7 +94,7 @@ const data = [
   {
     category: "iOS",
     title: "Photography just got better.",
-    src: "https://www.google.com/images/branding/googlemic/2x/googlemic_color_24dp.png", // Ganti dengan link Google Images
+    src: "https://t0.gstatic.com/images?q=tbn:ANd9GcQf4z2v9z3x5f5f5f5f5f5f5f5f5f5f5f5", // Ganti dengan link Google Images yang valid
     content: (
       <DummyContent
         title="Photography just got better."
@@ -105,7 +105,7 @@ const data = [
   {
     category: "Hiring",
     title: "Hiring for a Staff Software Engineer",
-    src: "https://www.google.com/images/branding/googlemic/2x/googlemic_color_24dp.png", // Ganti dengan link Google Images
+    src: "https://t0.gstatic.com/images?q=tbn:ANd9GcQf4z2v9z3x5f5f5f5f5f5f5f5f5f5f5f5", // Ganti dengan link Google Images yang valid
     content: (
       <DummyContent
         title="Hiring for a Staff Software Engineer"
