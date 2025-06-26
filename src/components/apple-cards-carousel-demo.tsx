@@ -2,12 +2,10 @@
 
 import React, { useState } from "react";
 import { Carousel, Card } from "@/components/ui/apple-cards-carousel";
-import { cn } from "@/lib/utils";
 
 export default function AppleCardsCarouselDemo() {
   const [selectedCard, setSelectedCard] = useState<any | null>(null);
 
-  // Hanya ambil 4 card pertama
   const cards = data.slice(0, 4).map((card, index) => (
     <div key={card.src} onClick={() => setSelectedCard(card)}>
       <Card card={card} index={index} />
@@ -22,7 +20,6 @@ export default function AppleCardsCarouselDemo() {
 
       <Carousel items={cards} />
 
-      {/* Modal */}
       {selectedCard && (
         <div
           className="fixed inset-0 bg-black bg-opacity-80 flex items-center justify-center z-50"
@@ -55,7 +52,7 @@ interface DummyContentProps {
 const DummyContent: React.FC<DummyContentProps> = ({ title, customText }) => {
   return (
     <div>
-      <p className="text-white text-base md:text-lg font-sans mb-4">
+      <p className="text-white text-base md:text-lg font-sans whitespace-pre-line mb-4">
         {customText}
       </p>
       <img
@@ -65,7 +62,6 @@ const DummyContent: React.FC<DummyContentProps> = ({ title, customText }) => {
         onError={(e) => {
           const target = e.target as HTMLImageElement;
           target.style.display = "none";
-          console.error("Gambar gagal dimuat. URL:", target.src, "Error:", e);
         }}
       />
     </div>
@@ -74,46 +70,69 @@ const DummyContent: React.FC<DummyContentProps> = ({ title, customText }) => {
 
 const data = [
   {
-    category: "Artificial Intelligence",
-    title: "You can do more with AI.",
+    category: "Program",
+    title: "Program Reseller Bisnovo",
     src: "/1.jpeg",
     content: (
       <DummyContent
-        title="You can do more with AI."
-        customText="Transform your workflow with AI-driven insights. From smart suggestions to automated analytics, unlock new possibilities for innovation and efficiency."
+        title="Syarat dan Ketentuan - Program Reseller Bisnovo"
+        customText={`1. Pendaftaran reseller gratis dan terbuka untuk umum.\n
+2. Reseller akan mendapatkan website katalog dan link promosi pribadi.\n
+3. Setiap penjualan melalui link akan mendapatkan profit +100%, dan bisa lebih tergantung produk.\n
+4. Reseller dilarang menjual dengan harga di bawah harga resmi Bisnovo.\n
+5. Promosi dilarang mengandung unsur SARA, kebohongan, atau menjanjikan hal yang tidak ada dalam paket.\n
+6. Komisi akan dibayarkan setiap minggu (Senin–Jumat) melalui transfer bank atau e-wallet.\n
+7. Bisnovo berhak mencabut status reseller jika melanggar aturan.`}
       />
     ),
   },
   {
-    category: "Productivity",
-    title: "Enhance your productivity.",
+    category: "Kolaborasi",
+    title: "Kolaborasi Bisnis & Pertukaran Ide",
     src: "/2.jpeg",
     content: (
       <DummyContent
-        title="Enhance your productivity."
-        customText="Stay organized and focused with tools designed to streamline your day. Sync tasks, manage projects, and boost efficiency with intuitive apps."
+        title="Syarat dan Ketentuan - Kolaborasi Bisnis"
+        customText={`1. Program kolaborasi terbuka untuk pelaku bisnis digital, UMKM, dan pemula yang ingin berkembang bersama.\n
+2. Kolaborasi bisa berupa: sharing ide, joint venture, pengembangan produk bersama, atau pertukaran layanan.\n
+3. Segala bentuk pembagian hasil atau kerja sama harus berdasarkan persetujuan tertulis kedua belah pihak.\n
+4. Bisnovo tidak bertanggung jawab atas kerugian dari kolaborasi yang dilakukan di luar fasilitasi resmi.\n
+5. Semua informasi yang dibagikan selama diskusi kolaborasi dianggap rahasia dan tidak boleh disebarluaskan tanpa izin.`}
       />
     ),
   },
   {
-    category: "Product",
-    title: "Launching the new Apple Vision Pro.",
+    category: "Iklan",
+    title: "Program Iklan Bersama (Joint Ads)",
     src: "/3.jpeg",
     content: (
       <DummyContent
-        title="Launching the new Apple Vision Pro."
-        customText="Step into a new reality with Apple Vision Pro. Experience immersive environments for work, entertainment, and creativity like never before."
+        title="Syarat dan Ketentuan - Iklan Bersama"
+        customText={`1. Program ini ditujukan untuk partner yang ingin mempromosikan produk/jasa dengan biaya iklan kolektif.\n
+2. Minimal partisipasi dana per individu adalah Rp100.000 untuk setiap siklus kampanye.\n
+3. Target, audiens, dan media iklan akan ditentukan bersama atau oleh tim Bisnovo dengan transparansi laporan.\n
+4. Setiap peserta akan mendapatkan bukti iklan dan laporan performa (view, klik, dll) pasca kampanye.\n
+5. Tidak ada jaminan penjualan; tujuan iklan adalah untuk menjangkau lebih banyak calon pembeli.\n
+6. Dana yang sudah masuk tidak dapat ditarik kembali setelah iklan dijalankan.\n
+7. Tidak diperkenankan menyisipkan produk berbau MLM, ilegal, atau bertentangan dengan hukum.`}
       />
     ),
   },
   {
-    category: "Product",
-    title: "Maps for your iPhone 15 Pro Max.",
+    category: "Paket",
+    title: "Paket Setup Bisnis Online",
     src: "/4.jpeg",
     content: (
       <DummyContent
-        title="Maps for your iPhone 15 Pro Max."
-        customText="Explore with confidence using advanced Maps features. Enjoy real-time navigation, detailed 3D views, and offline access for seamless adventures."
+        title="Syarat dan Ketentuan - Paket Setup Bisnis"
+        customText={`1. Klien akan mendapatkan: website landing page, desain konten sosial media, booster sosial media, chatbot, copywriting, SEO dasar, dan video promosi.\n
+2. Semua materi dibuat berdasarkan brief yang disetujui oleh klien.\n
+3. Revisi maksimal 2x untuk tiap item. Revisi tambahan akan dikenakan biaya tambahan.\n
+4. Lama pengerjaan standar adalah 3–7 hari kerja setelah pembayaran dan brief lengkap diterima.\n
+5. Pembayaran minimal 50% di depan; sisa pelunasan sebelum final delivery.\n
+6. File mentahan (editable) hanya diberikan jika termasuk dalam paket yang dipilih.\n
+7. Hak cipta desain dan konten dimiliki oleh klien setelah pelunasan penuh, kecuali aset pihak ketiga.\n
+8. Bisnovo tidak bertanggung jawab atas penurunan performa jika konten atau website dimodifikasi oleh pihak luar tanpa konsultasi.`}
       />
     ),
   },
