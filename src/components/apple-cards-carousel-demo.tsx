@@ -4,14 +4,19 @@ import React from "react";
 import { Carousel, Card } from "@/components/ui/apple-cards-carousel";
 
 export default function AppleCardsCarouselDemo() {
-  const cards = data.map((card, index) => (
+  // Hanya mengambil 4 item pertama dari data menggunakan slice(0, 4)
+  const cards = data.slice(0, 4).map((card, index) => (
     <Card key={card.src} card={card} index={index} />
   ));
 
   return (
     <div className="w-full h-full py-20">
-      {/* Teks ini telah diubah sesuai permintaan */}
-      <h2 className="max-w-7xl mx-auto pl-4 text-xl md:text-5xl font-bold text-neutral-800 dark:text-neutral-200 font-sans">
+      {/* PERUBAHAN:
+        - `text-center` ditambahkan untuk membuat teks di tengah.
+        - `pl-4` dihapus agar tidak mengganggu posisi tengah.
+        - `text-neutral-800 dark:text-neutral-200` diganti dengan `text-white` agar warna teks menjadi putih.
+      */}
+      <h2 className="max-w-7xl mx-auto text-center text-xl md:text-5xl font-bold text-white font-sans">
         Layanan Bisnovo
       </h2>
       <Carousel items={cards} />
@@ -34,12 +39,11 @@ const DummyContent: React.FC<DummyContentProps> = ({ title, customText }) => {
       <img
         src="/1.jpeg" // Gambar lokal
         alt={`${title} mockup`}
-        // Hapus semua pengaturan ukuran yang memaksa resize
-        style={{ maxWidth: "100%", height: "auto" }} // Tampilkan sesuai ukuran asli
-        className="mx-auto" // Hanya pusatkan, tanpa resize
+        style={{ maxWidth: "100%", height: "auto" }}
+        className="mx-auto"
         onError={(e) => {
           const target = e.target as HTMLImageElement;
-          target.style.display = "none"; // Sembunyikan jika gagal
+          target.style.display = "none";
           console.error("Gambar gagal dimuat. URL:", target.src, "Error:", e);
         }}
       />
@@ -47,6 +51,7 @@ const DummyContent: React.FC<DummyContentProps> = ({ title, customText }) => {
   );
 };
 
+// PERUBAHAN: Dua objek terakhir (card ke-5 dan ke-6) telah dihapus dari array ini.
 const data = [
   {
     category: "Artificial Intelligence",
@@ -92,26 +97,5 @@ const data = [
       />
     ),
   },
-  {
-    category: "iOS",
-    title: "Photography just got better.",
-    src: "/5.jpeg", // Gambar lokal
-    content: (
-      <DummyContent
-        title="Photography just got better."
-        customText="Elevate your photography with cutting-edge iOS features. Capture vibrant colors, stunning low-light shots, and professional-grade portraits effortlessly."
-      />
-    ),
-  },
-  {
-    category: "Hiring",
-    title: "Hiring for a Staff Software Engineer",
-    src: "/6.jpeg", // Gambar lokal
-    content: (
-      <DummyContent
-        title="Hiring for a Staff Software Engineer"
-        customText="Join our mission to shape the future of technology. We're seeking talented engineers to build innovative solutions. Apply now and make an impact!"
-      />
-    ),
-  },
+  // Card ke-5 dan ke-6 telah dihapus dari sini.
 ];
