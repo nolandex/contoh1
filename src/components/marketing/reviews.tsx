@@ -1,4 +1,4 @@
-// Lokasi: src/components/marketing/reviews.tsx
+// src/components/marketing/reviews.tsx
 
 "use client";
 
@@ -32,7 +32,7 @@ const AnimatedTestimonials = ({
     if (!autoplay) return;
     const interval = setInterval(handleNext, 5000);
     return () => clearInterval(interval);
-  }, [autoplay, active]);
+  }, [autoplay, handleNext]); // Added handleNext to dependencies
 
   const isActive = (index: number) => index === active;
   const randomRotateY = () => Math.floor(Math.random() * 21) - 10;
