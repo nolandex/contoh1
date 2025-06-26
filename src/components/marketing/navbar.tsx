@@ -20,7 +20,7 @@ export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false)
 
   // Fungsi untuk menangani smooth scroll ke section tujuan
-  const handleScroll = (e: React.MouseEvent<HTMLAnchorElement>) => {
+  const handleScroll = (e) => {
     e.preventDefault();
     const href = e.currentTarget.href;
     const targetId = href.replace(/.*#/, "");
@@ -36,10 +36,10 @@ export default function Navbar() {
   };
 
   return (
-    // --- REVISI WARNA --- Mengembalikan background ke warna asli
     <header className="fixed top-0 left-0 w-full z-50 bg-[rgba(10,10,10,0.6)] backdrop-blur-md">
       <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-16">
+        {/* --- REVISI UKURAN --- Mengurangi tinggi Navbar */}
+        <div className="flex items-center justify-between h-14">
           {/* Logo */}
           <div className="flex-shrink-0 text-white font-semibold text-lg">
             <Link href="#hero" onClick={handleScroll}>Bisnovo</Link>
@@ -52,7 +52,6 @@ export default function Navbar() {
                 key={link.href}
                 href={link.href}
                 onClick={handleScroll}
-                // --- REVISI WARNA --- Mengembalikan hover color ke warna asli
                 className="text-sm font-medium text-white hover:text-primary transition-colors"
               >
                 {link.label}
@@ -74,17 +73,16 @@ export default function Navbar() {
 
         {/* Mobile Menu */}
         {isOpen && (
-          <div className="lg:hidden w-full px-4 pb-6 pt-4">
+           // --- REVISI UKURAN --- Mengurangi padding vertikal menu mobile
+          <div className="lg:hidden w-full px-4 pb-4 pt-2">
             <ul className="space-y-2">
               {navLinks.map(({ href, label, Icon }) => (
                 <li key={href}>
                   <Link
                     href={href}
                     onClick={handleScroll}
-                    // --- REVISI WARNA --- Mengembalikan hover color ke warna asli
                     className="flex items-center gap-4 p-3 rounded-lg text-white hover:text-primary transition-colors"
                   >
-                    {/* Icon akan mewarisi warna dari Link parent */}
                     <Icon className="h-5 w-5" />
                     <span className="text-base font-medium">{label}</span>
                   </Link>
