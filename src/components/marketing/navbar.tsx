@@ -4,12 +4,13 @@
 
 import Link from 'next/link'
 import { useState } from 'react'
-import { Menu, X, Home, Building2, Sparkles, Tag, MessageSquare, Mail } from 'lucide-react'
+// --- REVISI DI SINI: Ganti ikon 'Building2' dengan 'LayoutGrid' untuk "Layanan" ---
+import { Menu, X, Home, LayoutGrid, Sparkles, Tag, MessageSquare, Mail } from 'lucide-react'
 
-// Daftar link untuk navigasi, membuat kode lebih rapi dan mudah dikelola
+// --- REVISI DI SINI: Mengubah link "Clients" menjadi "Layanan" ---
 const navLinks = [
   { href: '#hero', label: 'Home', Icon: Home },
-  { href: '#companies', label: 'Clients', Icon: Building2 },
+  { href: '#layanan', label: 'Layanan', Icon: LayoutGrid }, // <-- Perubahan di baris ini
   { href: '#perks', label: 'Features', Icon: Sparkles },
   { href: '#pricing', label: 'Pricing', Icon: Tag },
   { href: '#reviews', label: 'Reviews', Icon: MessageSquare },
@@ -19,7 +20,6 @@ const navLinks = [
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false)
 
-  // --- REVISI ERROR --- Menambahkan kembali tipe data untuk parameter 'e'
   const handleScroll = (e: React.MouseEvent<HTMLAnchorElement>) => {
     e.preventDefault();
     const href = e.currentTarget.href;
@@ -37,14 +37,11 @@ export default function Navbar() {
   return (
     <header className="fixed top-0 left-0 w-full z-50 bg-[rgba(10,10,10,0.6)] backdrop-blur-md">
       <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Tinggi Navbar sudah diperkecil sesuai permintaan */}
         <div className="flex items-center justify-between h-14">
-          {/* Logo */}
           <div className="flex-shrink-0 text-white font-semibold text-lg">
             <Link href="#hero" onClick={handleScroll}>Bisnovo</Link>
           </div>
 
-          {/* Desktop Menu */}
           <div className="hidden lg:flex space-x-6 items-center">
             {navLinks.map((link) => (
               <Link
@@ -58,7 +55,6 @@ export default function Navbar() {
             ))}
           </div>
           
-          {/* Hamburger Button */}
           <div className="lg:hidden">
             <button
               onClick={() => setIsOpen(!isOpen)}
@@ -70,7 +66,6 @@ export default function Navbar() {
           </div>
         </div>
 
-        {/* Mobile Menu */}
         {isOpen && (
            <div className="lg:hidden w-full px-4 pb-4 pt-2">
             <ul className="space-y-2">
