@@ -1,5 +1,3 @@
-// src/components/marketing/reviews.tsx
-
 "use client";
 
 import { reviewsContent } from "@/config/content";
@@ -7,8 +5,9 @@ import Container from "../global/container";
 import { SectionBadge } from "../ui/section-bade";
 import { IconArrowLeft, IconArrowRight } from "@tabler/icons-react";
 import { AnimatePresence, motion } from "framer-motion";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useCallback } from "react";
 
+// Tipe data untuk setiap testimonial
 type Testimonial = {
   quote: string;
   name: string;
@@ -16,6 +15,7 @@ type Testimonial = {
   src: string;
 };
 
+// Komponen untuk menganimasikan testimonial
 const AnimatedTestimonials = ({
   testimonials,
   autoplay = true,
@@ -25,38 +25,45 @@ const AnimatedTestimonials = ({
 }) => {
   const [active, setActive] = useState(0);
 
-  const handleNext = () => setActive((prev) => (prev + 1) % testimonials.length);
-  const handlePrev = () => setActive((prev) => (prev - 1 + testimonials.length) % testimonials.length);
+  // Menggunakan useCallback untuk memoize fungsi agar tidak dibuat ulang pada setiap render.
+  // Ini mengoptimalkan useEffect di bawah.
+  const handleNext = useCallback(() => {
+    setActive((prev) => (prev + 1) % testimonials.length);
+  }, [testimonials.length]);
 
+  const handlePrev = useCallback(() => {
+    setActive((prev) => (prev - 1 + testimonials.length) % testimonials.length);
+  }, [testimonials.length]);
+
+  // useEffect untuk autoplay.
+  // Dengan handleNext di dalam useCallback, interval tidak akan di-reset pada setiap render.
   useEffect(() => {
     if (!autoplay) return;
     const interval = setInterval(handleNext, 5000);
     return () => clearInterval(interval);
-  }, [autoplay, handleNext]); // Added handleNext to dependencies
+  }, [autoplay, handleNext]);
 
   const isActive = (index: number) => index === active;
-  const randomRotateY = () => Math.floor(Math.random() * 21) - 10;
 
   return (
     <div className="mx-auto w-full max-w-sm px-4 py-16 font-sans antialiased md:max-w-4xl md:px-8 lg:px-12">
       <div className="relative grid grid-cols-1 items-center gap-20 md:grid-cols-2">
+        {/* Kolom Gambar Testimonial */}
         <div className="relative h-80 w-full">
           <AnimatePresence>
             {testimonials.map((testimonial, index) => (
               <motion.div
                 key={testimonial.src}
-                initial={{ opacity: 0, scale: 0.9, z: -100, rotate: randomRotateY() }}
+                initial={{ opacity: 0, scale: 0.9, zIndex: 10 }}
                 animate={{
                   opacity: isActive(index) ? 1 : 0.7,
                   scale: isActive(index) ? 1 : 0.95,
-                  z: isActive(index) ? 0 : -100,
-                  rotate: isActive(index) ? 0 : randomRotateY(),
-                  zIndex: isActive(index) ? 40 : testimonials.length - index,
-                  y: isActive(index) ? [0, -40, 0] : 0,
+                  y: isActive(index) ? [0, -20, 0] : 0,
+                  zIndex: isActive(index) ? 40 : testimonials.length - Math.abs(index - active),
                 }}
-                exit={{ opacity: 0, scale: 0.9, z: 100, rotate: randomRotateY() }}
+                exit={{ opacity: 0, scale: 0.9, zIndex: 10 }}
                 transition={{ duration: 0.4, ease: "easeInOut" }}
-                className="absolute inset-0 origin-bottom"
+                className="absolute inset-0"
               >
                 <img
                   src={testimonial.src}
@@ -70,6 +77,7 @@ const AnimatedTestimonials = ({
             ))}
           </AnimatePresence>
         </div>
+        {/* Kolom Teks Testimonial */}
         <div className="flex flex-col justify-between py-4">
           <AnimatePresence mode="wait">
             <motion.div
@@ -89,23 +97,28 @@ const AnimatedTestimonials = ({
                 {testimonials[active].quote.split(" ").map((word, index) => (
                   <motion.span
                     key={index}
-                    initial={{ filter: "blur(8px)", opacity: 0 }}
+                    initial={{ filter: "blur(4px)", opacity: 0 }}
                     animate={{ filter: "blur(0px)", opacity: 1 }}
-                    transition={{ duration: 0.2, ease: "easeInOut", delay: 0.03 * index }}
+                    transition={{
+                      duration: 0.2,
+                      ease: "easeInOut",
+                      delay: 0.02 * index,
+                    }}
                     className="inline-block"
                   >
-                    {word} 
+                    {word}&nbsp;
                   </motion.span>
                 ))}
               </blockquote>
             </motion.div>
           </AnimatePresence>
+          {/* Tombol Navigasi */}
           <div className="flex gap-4 pt-12 md:pt-0">
-            <button onClick={handlePrev} className="group/button flex h-7 w-7 items-center justify-center rounded-full bg-white/10 hover:bg-white/20 transition">
-              <IconArrowLeft className="h-5 w-5 text-white transition-transform duration-300 group-hover/button:rotate-12" />
+            <button onClick={handlePrev} className="group flex h-8 w-8 items-center justify-center rounded-full bg-white/10 transition-colors hover:bg-white/20">
+              <IconArrowLeft className="h-5 w-5 text-white" />
             </button>
-            <button onClick={handleNext} className="group/button flex h-7 w-7 items-center justify-center rounded-full bg-white/10 hover:bg-white/20 transition">
-              <IconArrowRight className="h-5 w-5 text-white transition-transform duration-300 group-hover/button:-rotate-12" />
+            <button onClick={handleNext} className="group flex h-8 w-8 items-center justify-center rounded-full bg-white/10 transition-colors hover:bg-white/20">
+              <IconArrowRight className="h-5 w-5 text-white" />
             </button>
           </div>
         </div>
@@ -114,7 +127,9 @@ const AnimatedTestimonials = ({
   );
 };
 
+// Komponen Utama
 const Reviews = () => {
+  // Mengambil data dari config dan memetakannya ke format yang dibutuhkan komponen Testimonial
   const testimonials = reviewsContent.reviews.map((review) => ({
     quote: review.review,
     name: review.name,
@@ -123,11 +138,13 @@ const Reviews = () => {
   }));
 
   return (
-    <div id="reviews" className="flex w-full flex-col items-center justify-center overflow-x-hidden py-12 md:py-16 lg:py-24 bg-gray-900">
+    // Menambahkan bg-gray-900 untuk latar belakang gelap
+    <div id="reviews" className="flex w-full flex-col items-center justify-center overflow-hidden bg-gray-900 py-12 md:py-16 lg:py-24">
       <Container>
         <div className="mx-auto flex max-w-xl flex-col items-center text-center">
-          <SectionBadge title={reviewsContent.badge} className="text-white bg-white/10" />
-          <h2 className="mt-6 font-heading text-2xl font-medium !leading-snug md:text-4xl lg:text-5xl text-white">
+          {/* Menyesuaikan badge untuk tema gelap */}
+          <SectionBadge title={reviewsContent.badge} className="bg-white/10 text-white" />
+          <h2 className="mt-6 font-heading text-2xl font-medium !leading-snug text-white md:text-4xl lg:text-5xl">
             {reviewsContent.headline}
           </h2>
           <p className="mt-6 text-center text-base text-white/80 md:text-lg">
