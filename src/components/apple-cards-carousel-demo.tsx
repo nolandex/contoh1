@@ -6,7 +6,7 @@ import { Carousel, Card } from "@/components/ui/apple-cards-carousel";
 export default function AppleCardsCarouselDemo() {
   const [selectedCard, setSelectedCard] = useState<any | null>(null);
 
-  // Lock scroll pada html dan body saat modal terbuka (kode ini sudah benar)
+  // Lock scroll pada html dan body saat modal terbuka
   useEffect(() => {
     if (selectedCard) {
       document.body.style.overflow = "hidden";
@@ -36,20 +36,20 @@ export default function AppleCardsCarouselDemo() {
 
       <Carousel items={cards} />
 
-      {/* REVISI PADA BAGIAN MODAL */}
+      {/* === KODE MODAL YANG DIPERBAIKI TOTAL === */}
       {selectedCard && (
         <div
-          // Kontainer luar kini memiliki padding (p-4) untuk memberi jarak dari tepi layar
-          className="fixed inset-0 bg-black bg-opacity-80 flex items-center justify-center z-50 p-4"
+          // Kontainer luar kini menjadi scrollable dan punya padding atas yang besar untuk menghindari navbar
+          className="fixed inset-0 bg-black bg-opacity-80 flex justify-center items-start z-50 overflow-y-auto pt-24 px-4 pb-8"
           onClick={() => setSelectedCard(null)}
         >
           <div
-            // max-h-full membuat modal mengisi ruang dalam padding, dan overflow-y-auto memastikan konten bisa di-scroll
-            className="bg-neutral-900 text-white rounded-2xl p-6 max-w-lg w-full max-h-full overflow-y-auto shadow-lg relative"
+            // Modal kini tidak lagi mengatur tinggi/scroll internalnya sendiri
+            className="bg-neutral-900 text-white rounded-2xl p-6 max-w-lg w-full shadow-lg relative"
             onClick={(e) => e.stopPropagation()}
           >
             <button
-              className="absolute top-2 right-3 text-white text-2xl z-10" // Diberi z-index untuk memastikan tombol selalu di atas
+              className="absolute top-2 right-3 text-white text-2xl z-10"
               onClick={() => setSelectedCard(null)}
             >
               &times;
@@ -89,7 +89,7 @@ const DummyContent: React.FC<DummyContentProps> = ({ title, customText }) => {
 };
 
 const data = [
-  {
+    {
     category: "Program",
     title: "Program Reseller Bisnovo",
     src: "/1.jpeg",
