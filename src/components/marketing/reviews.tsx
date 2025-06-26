@@ -1,19 +1,16 @@
 // Lokasi: src/components/marketing/reviews.tsx
-// Ini adalah kode lengkap final untuk keseluruhan file.
+// Ini adalah kode lengkap (versi workaround) untuk keseluruhan file.
 
 "use client";
 
-// Bagian ini dipertahankan dari kode asli Anda untuk menjaga struktur halaman
 import { reviewsContent } from "@/config/content";
 import Container from "../global/container";
 import { SectionBadge } from "../ui/section-bade";
-
-// Hanya 'useState' dari React yang diperlukan karena animasi dihapus
 import { useState } from "react";
-// [FIX 1] Import 'Image' dari next/image untuk optimasi
-import Image from "next/image";
 
-// Tipe data untuk testimoni
+// [DIKEMBALIKAN] Hapus import 'Image' dari next/image
+// import Image from "next/image";
+
 type Testimonial = {
   quote: string;
   name: string;
@@ -21,7 +18,6 @@ type Testimonial = {
   src: string;
 };
 
-// Komponen testimoni yang disederhanakan (tanpa animasi)
 const SimpleTestimonials = () => {
   const [active, setActive] = useState(0);
 
@@ -45,21 +41,21 @@ const SimpleTestimonials = () => {
           "This solution has significantly improved our team's productivity. The intuitive interface makes complex tasks simple.",
         name: "Emily Watson",
         designation: "Operations Director at CloudScale",
-        src: "https://images.unsplash.com/photo-1623582854588-d60de57fa33f?q=80&w=3540&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+        src: "https://images.unsplash.com/photo-1623582854588-d60de57fa33f?q=80&w=3540&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%D%3D",
       },
        {
       quote:
         "Outstanding support and robust features. It's rare to find a product that delivers on all its promises.",
       name: "James Kim",
       designation: "Engineering Lead at DataPro",
-      src: "https://images.unsplash.com/photo-1636041293178-808a6762ab39?q=80&w=3464&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      src: "https://images.unsplash.com/photo-1636041293178-808a6762ab39?q=80&w=3464&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%D%3D",
     },
     {
       quote:
         "The scalability and performance have been game-changing for our organization. Highly recommend to any growing business.",
       name: "Lisa Thompson",
       designation: "VP of Technology at FutureNet",
-      src: "https://images.unsplash.com/photo-1624561172888-ac93c696e10c?q=80&w=2592&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      src: "https://images.unsplash.com/photo-1624561172888-ac93c696e10c?q=80&w=2592&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%D%3D",
     },
     ];
 
@@ -76,10 +72,9 @@ const SimpleTestimonials = () => {
   return (
     <div className="mx-auto w-full max-w-sm px-4 py-16 font-sans antialiased md:max-w-4xl md:px-8 lg:px-12">
       <div className="relative grid grid-cols-1 gap-10 md:grid-cols-2">
-        {/* Bagian Gambar */}
         <div className="relative h-80 w-full">
-            {/* [FIX 2] Ganti tag <img> dengan <Image> untuk optimasi dan menghilangkan warning */}
-            <Image
+            {/* [DIKEMBALIKAN] Menggunakan tag <img> biasa lagi */}
+            <img
               src={activeTestimonial.src}
               alt={activeTestimonial.name}
               width={500}
@@ -88,7 +83,6 @@ const SimpleTestimonials = () => {
               className="h-full w-full rounded-3xl object-cover object-center transition-all duration-300 ease-in-out"
             />
         </div>
-        {/* Bagian Teks */}
         <div className="flex flex-col justify-between py-4">
           <div>
             <h3 className="text-2xl font-bold text-black dark:text-white">
@@ -97,12 +91,10 @@ const SimpleTestimonials = () => {
             <p className="text-sm text-gray-500 dark:text-neutral-500">
               {activeTestimonial.designation}
             </p>
-            {/* [FIX 3 - ERROR UTAMA] Hapus tanda kutip " manual di sekitar variabel */}
             <p className="mt-8 text-lg text-gray-500 dark:text-neutral-300">
              {activeTestimonial.quote}
             </p>
           </div>
-          {/* Tombol Navigasi Sederhana */}
           <div className="flex gap-4 pt-12 md:pt-0">
             <button
               onClick={handlePrev}
@@ -124,7 +116,6 @@ const SimpleTestimonials = () => {
 };
 
 
-// Ini adalah komponen utama Anda, 'Reviews'
 const Reviews = () => {
     return (
         <div className="flex flex-col items-center justify-center py-12 md:py-16 lg:py-24 w-full">
@@ -147,4 +138,3 @@ const Reviews = () => {
 };
 
 export default Reviews;
-
