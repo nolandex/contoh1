@@ -4,8 +4,8 @@
 
 import { heroContent } from "@/config/content";
 import { BlurText } from "../ui/blur-text";
-// Komponen Button tidak lagi digunakan, jadi bisa dihapus jika tidak ada di tempat lain.
-// import { Button } from "../ui/button"; 
+// Komponen Button tidak lagi digunakan, jadi impor ini bisa dihapus.
+// import { Button } from "../ui/button";
 
 import Image from "next/image";
 import Marquee from "react-fast-marquee";
@@ -59,10 +59,6 @@ const Hero = () => {
           <div className="w-2.5 h-2.5 rounded-full bg-primary/60 animate-ping absolute"></div>
           <div className="w-1.5 h-1.5 rounded-full bg-primary absolute"></div>
         </div>
-        {/*
-          Catatan: Class 'animate-background-shine' sekarang akan menggunakan keyframes baru.
-          Ini juga akan memengaruhi animasi pada badge ini.
-        */}
         <span className="inline-flex items-center justify-center gap-2 bg-[linear-gradient(110deg,#b2a8fd,45%,#8678f9,55%,#c7d2fe)] bg-[length:200%_100%] bg-clip-text text-sm text-transparent animate-background-shine">
           {heroContent.badge.mainText}
           <span className="text-xs text-secondary-foreground px-1.5 py-0.5 rounded-full bg-gradient-to-b from-foreground/20 to-foreground/10 flex items-center justify-center">
@@ -80,29 +76,26 @@ const Hero = () => {
         {heroContent.subheadline}
       </p>
 
-      {/* --- IMPLEMENTASI TOMBOL BARU --- */}
+      {/* --- Tombol Ungu dengan Efek Shine --- */}
       <div className="flex items-center justify-center flex-col sm:flex-row gap-4 mt-8">
         <button
           onClick={scrollToPricing}
-          className='inline-flex h-12 animate-background-shine items-center justify-center rounded-md border border-gray-800 bg-[linear-gradient(110deg,#000103,45%,#1e2631,55%,#000103)] bg-[length:200%_100%] px-6 font-medium text-gray-400 transition-colors focus:outline-none focus:ring-2 focus:ring-gray-400 focus:ring-offset-2 focus:ring-offset-gray-50'
+          className='inline-flex h-12 animate-background-shine items-center justify-center rounded-md border border-primary/60 bg-[linear-gradient(110deg,#8678f9,45%,#c7d2fe,55%,#8678f9)] bg-[length:200%_100%] px-8 font-medium text-primary-foreground transition-colors focus:outline-none focus:ring-2 focus:ring-primary/80 focus:ring-offset-2 focus:ring-offset-background'
         >
           {heroContent.ctaPrimary.text}
         </button>
         <button
           onClick={scrollToPricing}
-          className='hidden md:inline-flex h-12 animate-background-shine items-center justify-center rounded-md border border-gray-800 bg-[linear-gradient(110deg,#000103,45%,#1e2631,55%,#000103)] bg-[length:200%_100%] px-6 font-medium text-gray-400 transition-colors focus:outline-none focus:ring-2 focus:ring-gray-400 focus:ring-offset-2 focus:ring-offset-gray-50'
+          className='hidden md:inline-flex h-12 animate-background-shine items-center justify-center rounded-md border border-primary/60 bg-[linear-gradient(110deg,#8678f9,45%,#c7d2fe,55%,#8678f9)] bg-[length:200%_100%] px-8 font-medium text-primary-foreground transition-colors focus:outline-none focus:ring-2 focus:ring-primary/80 focus:ring-offset-2 focus:ring-offset-background'
         >
           {heroContent.ctaSecondary.text}
         </button>
       </div>
-      {/* --- AKHIR IMPLEMENTASI --- */}
+      {/* --- Akhir Implementasi Tombol --- */}
 
       <ScrollingLogos />
 
-      {/*
-        Keyframes telah diperbarui untuk mencocokkan animasi 'ButtonBackgroundShine'.
-        Class 'animate-background-shine' sekarang menggunakan keyframes 'background-shine' dengan durasi 2 detik.
-      */}
+      {/* Style untuk animasi background shine */}
       <style jsx>{`
         @keyframes background-shine {
           from {
