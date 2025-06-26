@@ -1,5 +1,5 @@
 // Lokasi: src/components/marketing/reviews.tsx
-// Ini adalah kode lengkap untuk keseluruhan file.
+// Ini adalah kode lengkap final untuk keseluruhan file.
 
 "use client";
 
@@ -10,6 +10,8 @@ import { SectionBadge } from "../ui/section-bade";
 
 // Hanya 'useState' dari React yang diperlukan karena animasi dihapus
 import { useState } from "react";
+// [FIX 1] Import 'Image' dari next/image untuk optimasi
+import Image from "next/image";
 
 // Tipe data untuk testimoni
 type Testimonial = {
@@ -20,11 +22,9 @@ type Testimonial = {
 };
 
 // Komponen testimoni yang disederhanakan (tanpa animasi)
-// Jauh lebih pendek karena tidak ada logika 'framer-motion'
 const SimpleTestimonials = () => {
   const [active, setActive] = useState(0);
 
-  // Data testimoni (sebelumnya ada di dalam komponen 'Reviews')
   const testimonials: Testimonial[] = [
       {
         quote:
@@ -38,7 +38,7 @@ const SimpleTestimonials = () => {
           "Implementation was seamless and the results exceeded our expectations. The platform's flexibility is remarkable.",
         name: "Michael Rodriguez",
         designation: "CTO at InnovateSphere",
-        src: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?q=80&w=3540&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+        src: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?q=80&w=3540&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%D%3D",
       },
       {
         quote:
@@ -71,7 +71,6 @@ const SimpleTestimonials = () => {
     setActive((prev) => (prev - 1 + testimonials.length) % testimonials.length);
   };
   
-  // Langsung ambil data testimoni yang aktif
   const activeTestimonial = testimonials[active];
 
   return (
@@ -79,7 +78,8 @@ const SimpleTestimonials = () => {
       <div className="relative grid grid-cols-1 gap-10 md:grid-cols-2">
         {/* Bagian Gambar */}
         <div className="relative h-80 w-full">
-            <img
+            {/* [FIX 2] Ganti tag <img> dengan <Image> untuk optimasi dan menghilangkan warning */}
+            <Image
               src={activeTestimonial.src}
               alt={activeTestimonial.name}
               width={500}
@@ -97,8 +97,9 @@ const SimpleTestimonials = () => {
             <p className="text-sm text-gray-500 dark:text-neutral-500">
               {activeTestimonial.designation}
             </p>
+            {/* [FIX 3 - ERROR UTAMA] Hapus tanda kutip " manual di sekitar variabel */}
             <p className="mt-8 text-lg text-gray-500 dark:text-neutral-300">
-             "{activeTestimonial.quote}"
+             {activeTestimonial.quote}
             </p>
           </div>
           {/* Tombol Navigasi Sederhana */}
@@ -124,7 +125,6 @@ const SimpleTestimonials = () => {
 
 
 // Ini adalah komponen utama Anda, 'Reviews'
-// Strukturnya tetap sama, hanya isinya yang memanggil komponen sederhana di atas
 const Reviews = () => {
     return (
         <div className="flex flex-col items-center justify-center py-12 md:py-16 lg:py-24 w-full">
@@ -140,12 +140,11 @@ const Reviews = () => {
                 </div>
             </Container>
             
-            {/* Memanggil komponen testimoni sederhana yang sudah didefinisikan di atas */}
             <SimpleTestimonials />
             
         </div>
     );
 };
 
-// Pastikan untuk mengekspor komponen utama
 export default Reviews;
+
