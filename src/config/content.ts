@@ -54,8 +54,8 @@ export const heroContent = {
     mainText: "Promo Launching!",
     subText: "Cepat dan mudah",
   },
-  headline: "Bisnis Online Siap Jalan Dalam 1 Hari Saja",
-  subheadline: `Dapatkan website, chatbot penjualan, dan konten media sosial siap pakai untuk memulai bisnis online Anda hari ini juga dengan ${siteConfig.companyName}.`,
+  headline: "Bisnovo Team Siap Bangun Bisnis dengan Profesional",
+  subheadline: `Gabung dalam program reseller, kembangkan ide melalui kolaborasi bisnis, dan nikmati keuntungan dari bagi hasil iklan bersama kami}.`,
   ctaPrimary: {
     text: "Lihat Paket Kami",
     href: "#pricing",
