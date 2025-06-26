@@ -6,6 +6,53 @@ import { heroContent } from "@/config/content";
 import { BlurText } from "../ui/blur-text";
 import { Button } from "../ui/button";
 
+// [1] Impor yang dibutuhkan untuk ScrollingLogos
+import { useTheme } from "next-themes";
+import Image from "next/image";
+import Marquee from "react-fast-marquee";
+// [DIHAPUS] Tidak perlu import dari file eksternal lagi
+// import { LOGOS } from "@/config/logos"; 
+
+// [DITAMBAHKAN] Daftar logo sekarang didefinisikan langsung di sini
+const LOGOS = [
+  { name: "Next.js", image: "/images/techStack/nextjs.svg" },
+  { name: "React", image: "/images/techStack/react.svg" },
+  { name: "Tailwind", image: "/images/techStack/tailwind.svg" },
+  { name: "Framer", image: "/images/techStack/framer.svg" },
+  { name: "Shadcnui", image: "/images/techStack/shadcnui.svg" },
+  { name: "Nextui", image: "/images/techStack/nextui.svg" },
+  { name: "TS", image: "/images/techStack/typescript.svg" },
+  { name: "Vercel", image: "/images/techStack/vercel.svg" },
+];
+
+// Komponen ScrollingLogos
+const ScrollingLogos = () => {
+  const { theme } = useTheme();
+  return (
+    <section className="mx-auto w-full max-w-5xl lg:max-w-7xl px-0 md:px-6 lg:px-8 mt-16">
+      <Marquee direction="left" autoFill pauseOnHover>
+        {LOGOS.map((logo, index) => (
+          <div className="mx-8 text-gray-500" key={index}>
+            <Image
+              src={logo.image}
+              alt={logo.name}
+              width={50}
+              height={50}
+              style={{
+                objectFit: "contain",
+              }}
+              className={`${
+                theme === "dark" ? "filter dark:invert grayscale" : ""
+              } hover:grayscale-0 transition-all duration-300 cursor-pointer opacity-60 hover:opacity-100`}
+            />
+          </div>
+        ))}
+      </Marquee>
+    </section>
+  );
+};
+
+// Komponen utama Hero
 const Hero = () => {
   const scrollToPricing = () => {
     const pricingSection = document.getElementById("pricing");
@@ -16,7 +63,7 @@ const Hero = () => {
 
   return (
     <div className="flex flex-col items-center text-center w-full max-w-5xl my-16 mx-auto z-40 relative px-4">
-      {/* Shiny animated badge */}
+      {/* Badge */}
       <div className="pl-2 pr-1 py-1 rounded-full border border-foreground/10 hover:border-foreground/15 backdrop-blur-lg cursor-pointer flex items-center gap-2.5 select-none w-max mx-auto">
         <div className="w-3.5 h-3.5 rounded-full bg-primary/40 flex items-center justify-center relative">
           <div className="w-2.5 h-2.5 rounded-full bg-primary/60 flex items-center justify-center animate-ping absolute"></div>
@@ -30,7 +77,7 @@ const Hero = () => {
         </span>
       </div>
 
-      {/* Main headline */}
+      {/* Headline */}
       <BlurText
         word={heroContent.headline}
         className="text-3xl sm:text-5xl lg:text-6xl xl:text-7xl bg-gradient-to-br from-foreground to-foreground/60 bg-clip-text text-transparent py-2 md:py-0 lg:!leading-snug font-medium mt-6 font-heading"
@@ -41,7 +88,7 @@ const Hero = () => {
         {heroContent.subheadline}
       </p>
 
-      {/* CTA Buttons */}
+      {/* Tombol CTA */}
       <div className="flex items-center justify-center md:gap-x-6 mt-8">
         <Button size="lg" onClick={scrollToPricing}>
           {heroContent.ctaPrimary.text}
@@ -56,12 +103,10 @@ const Hero = () => {
         </Button>
       </div>
 
-      {/* Dollar icon */}
-      <div className="mt-16 text-7xl font-bold text-primary animate-pulse" aria-hidden="true">
-        $
-      </div>
+      {/* Komponen logo berjalan */}
+      <ScrollingLogos />
 
-      {/* Extra styles for shine animation */}
+      {/* Style untuk animasi badge */}
       <style jsx>{`
         @keyframes shine {
           0% {
