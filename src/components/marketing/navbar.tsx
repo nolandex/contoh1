@@ -1,13 +1,12 @@
+// Lokasi: src/components/marketing/navbar.tsx
+
 'use client'
 
 import Link from 'next/link'
 import { useState } from 'react'
-// --- REVISI DI SINI ---
-// Menambahkan impor ikon yang akan digunakan
 import { Menu, X, Home, Building2, Sparkles, Tag, MessageSquare, Mail } from 'lucide-react'
 
-// --- REVISI DI SINI ---
-// Membuat daftar link sebagai array untuk memudahkan pengelolaan
+// Daftar link untuk navigasi, membuat kode lebih rapi dan mudah dikelola
 const navLinks = [
   { href: '#hero', label: 'Home', Icon: Home },
   { href: '#companies', label: 'Clients', Icon: Building2 },
@@ -20,7 +19,7 @@ const navLinks = [
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false)
 
-  // Fungsi untuk menangani smooth scroll (tidak ada perubahan, sudah baik)
+  // Fungsi untuk menangani smooth scroll ke section tujuan
   const handleScroll = (e: React.MouseEvent<HTMLAnchorElement>) => {
     e.preventDefault();
     const href = e.currentTarget.href;
@@ -31,14 +30,14 @@ export default function Navbar() {
       elem.scrollIntoView({
         behavior: "smooth",
       });
+      // Tutup menu mobile setelah link diklik
       setIsOpen(false);
     }
   };
 
-  // --- REVISI DI SINI ---
-  // Header dibuat lebih ringkas dengan memetakan (map) dari array navLinks
   return (
-    <header className="fixed top-0 left-0 w-full z-50 bg-slate-900/80 backdrop-blur-md">
+    // --- REVISI WARNA --- Mengembalikan background ke warna asli
+    <header className="fixed top-0 left-0 w-full z-50 bg-[rgba(10,10,10,0.6)] backdrop-blur-md">
       <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
@@ -53,14 +52,15 @@ export default function Navbar() {
                 key={link.href}
                 href={link.href}
                 onClick={handleScroll}
-                className="text-sm font-medium text-white hover:text-sky-400 transition-colors"
+                // --- REVISI WARNA --- Mengembalikan hover color ke warna asli
+                className="text-sm font-medium text-white hover:text-primary transition-colors"
               >
                 {link.label}
               </Link>
             ))}
           </div>
           
-          {/* Hamburger */}
+          {/* Hamburger Button */}
           <div className="lg:hidden">
             <button
               onClick={() => setIsOpen(!isOpen)}
@@ -70,22 +70,22 @@ export default function Navbar() {
               {isOpen ? <X size={24} /> : <Menu size={24} />}
             </button>
           </div>
-
         </div>
 
         {/* Mobile Menu */}
         {isOpen && (
           <div className="lg:hidden w-full px-4 pb-6 pt-4">
-            <ul className="space-y-2 text-white">
+            <ul className="space-y-2">
               {navLinks.map(({ href, label, Icon }) => (
                 <li key={href}>
                   <Link
                     href={href}
                     onClick={handleScroll}
-                    className="flex items-center gap-4 p-3 rounded-lg hover:bg-slate-800 transition-colors"
+                    // --- REVISI WARNA --- Mengembalikan hover color ke warna asli
+                    className="flex items-center gap-4 p-3 rounded-lg text-white hover:text-primary transition-colors"
                   >
-                    {/* Ikon ditambahkan di sini */}
-                    <Icon className="h-5 w-5 text-sky-400" />
+                    {/* Icon akan mewarisi warna dari Link parent */}
+                    <Icon className="h-5 w-5" />
                     <span className="text-base font-medium">{label}</span>
                   </Link>
                 </li>
