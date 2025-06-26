@@ -1,6 +1,5 @@
 "use client";
 
-import { reviewsContent } from "@/config/content";
 import Container from "../global/container";
 import { SectionBadge } from "../ui/section-bade";
 import { IconArrowLeft, IconArrowRight } from "@tabler/icons-react";
@@ -77,7 +76,6 @@ const AnimatedTestimonials = ({
               exit={{ y: -20, opacity: 0 }}
               transition={{ duration: 0.2, ease: "easeInOut" }}
             >
-              {/* PERUBAHAN WARNA TEKS */}
               <h3 className="text-2xl font-bold text-white">
                 {testimonials[active].name}
               </h3>
@@ -100,7 +98,6 @@ const AnimatedTestimonials = ({
             </motion.div>
           </AnimatePresence>
           <div className="flex gap-4 pt-12 md:pt-0">
-            {/* PERUBAHAN WARNA TOMBOL */}
             <button onClick={handlePrev} className="group/button flex h-7 w-7 items-center justify-center rounded-full bg-white/10 transition-colors hover:bg-white/20">
               <IconArrowLeft className="h-5 w-5 text-white" />
             </button>
@@ -115,27 +112,47 @@ const AnimatedTestimonials = ({
 };
 
 const Reviews = () => {
-  // PERUBAHAN KONTEN TEKS REVIEW
-  // Data sekarang diambil dari 'reviewsContent' sesuai layanan Anda
-  const testimonials = reviewsContent.reviews.map((review) => ({
-    quote: review.review,
-    name: review.name,
-    designation: review.username,
-    src: review.img,
-  }));
+  const testimonials: Testimonial[] = [
+    {
+      name: "Paket Setup Bisnis Online",
+      designation: "Klien Bisnovo",
+      src: "/testi1.jpg",
+      quote:
+        "Saya sangat puas! Saya mendapatkan website, konten sosial media, chatbot, dan video promosi hanya dalam waktu beberapa hari. Semua materi disesuaikan dengan brief saya, dan hasilnya profesional sekali!",
+    },
+    {
+      name: "Program Iklan Bersama",
+      designation: "Partner Iklan",
+      src: "/testi2.jpg",
+      quote:
+        "Dengan modal hanya Rp100.000, saya bisa ikut promosi bareng dan menjangkau lebih banyak calon pembeli. Ada laporan lengkapnya juga. Cocok banget buat pebisnis pemula!",
+    },
+    {
+      name: "Kolaborasi Bisnis",
+      designation: "Kolaborator UMKM",
+      src: "/testi3.jpg",
+      quote:
+        "Saya ikut program kolaborasi untuk sharing ide dan layanan. Ternyata banyak peluang bisnis yang bisa digarap bareng. Diskusinya aman dan saling menghargai. Recommended!",
+    },
+    {
+      name: "Program Reseller",
+      designation: "Reseller Aktif",
+      src: "/testi4.jpg",
+      quote:
+        "Saya daftar reseller gratis dan langsung dapat website katalog. Setiap penjualan saya dapat komisi. Tidak ribet, promosi juga dibantu, dan komisi cair tiap minggu. Mantap!",
+    },
+  ];
 
   return (
-    // PERUBAHAN WARNA LATAR BELAKANG
     <div id="reviews" className="flex w-full flex-col items-center justify-center overflow-x-hidden bg-gray-900 py-12 md:py-16 lg:py-24">
       <Container>
         <div className="mx-auto flex max-w-xl flex-col items-center text-center">
-          <SectionBadge title={reviewsContent.badge} />
-          {/* PERUBAHAN WARNA TEKS */}
+          <SectionBadge title="Testimoni Klien & Partner" />
           <h2 className="mt-6 font-heading text-2xl font-medium !leading-snug text-white md:text-4xl lg:text-5xl">
-            {reviewsContent.headline}
+            Apa Kata Mereka Tentang Bisnovo
           </h2>
           <p className="mt-6 text-center text-base text-white/80 md:text-lg">
-            {reviewsContent.subheadline}
+            Bisnovo dipercaya oleh pelaku bisnis digital, UMKM, dan reseller di seluruh Indonesia.
           </p>
         </div>
       </Container>
