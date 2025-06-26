@@ -3,13 +3,13 @@
 "use client";
 
 import { cn } from "@/lib/utils";
-import { motion, type MotionProps, type AnimationProps } from "framer-motion"; // Pastikan import dari framer-motion
+import { motion, type MotionProps, type AnimationProps } from "framer-motion";
 import React from "react";
 
 const animationProps = {
   initial: { "--x": "100%", scale: 0.8 },
   animate: { "--x": "-100%", scale: 1 },
-  whileTap: { scale: 0.95 },
+  // whileTap: { scale: 0.95 }, // <-- HAPUS BARIS INI DARI SINI
   transition: {
     repeat: Infinity,
     repeatType: "loop",
@@ -41,6 +41,7 @@ export const ShinyButton = React.forwardRef<
   return (
     <motion.button
       ref={ref}
+      whileTap={{ scale: 0.95 }} // <-- DAN PINDAHKAN KE SINI SEBAGAI PROP
       className={cn(
         "relative cursor-pointer rounded-lg px-6 py-2 font-medium backdrop-blur-xl border transition-shadow duration-300 ease-in-out hover:shadow dark:bg-[radial-gradient(circle_at_50%_0%,var(--primary)/10%_0%,transparent_60%)] dark:hover:shadow-[0_0_20px_var(--primary)/10%]",
         className,
