@@ -6,7 +6,7 @@ import { Carousel, Card } from "@/components/ui/apple-cards-carousel";
 export default function AppleCardsCarouselDemo() {
   const [selectedCard, setSelectedCard] = useState<any | null>(null);
 
-  // Lock scroll pada html dan body saat modal terbuka
+  // Lock scroll pada html dan body saat modal terbuka (kode ini sudah benar)
   useEffect(() => {
     if (selectedCard) {
       document.body.style.overflow = "hidden";
@@ -36,17 +36,20 @@ export default function AppleCardsCarouselDemo() {
 
       <Carousel items={cards} />
 
+      {/* REVISI PADA BAGIAN MODAL */}
       {selectedCard && (
         <div
-          className="fixed inset-0 bg-black bg-opacity-80 flex items-center justify-center z-50"
+          // Kontainer luar kini memiliki padding (p-4) untuk memberi jarak dari tepi layar
+          className="fixed inset-0 bg-black bg-opacity-80 flex items-center justify-center z-50 p-4"
           onClick={() => setSelectedCard(null)}
         >
           <div
-            className="bg-neutral-900 text-white rounded-2xl p-6 max-w-lg w-full max-h-[90vh] overflow-y-auto mx-4 shadow-lg relative"
+            // max-h-full membuat modal mengisi ruang dalam padding, dan overflow-y-auto memastikan konten bisa di-scroll
+            className="bg-neutral-900 text-white rounded-2xl p-6 max-w-lg w-full max-h-full overflow-y-auto shadow-lg relative"
             onClick={(e) => e.stopPropagation()}
           >
             <button
-              className="absolute top-2 right-3 text-white text-2xl"
+              className="absolute top-2 right-3 text-white text-2xl z-10" // Diberi z-index untuk memastikan tombol selalu di atas
               onClick={() => setSelectedCard(null)}
             >
               &times;
@@ -60,6 +63,7 @@ export default function AppleCardsCarouselDemo() {
   );
 }
 
+// Komponen DummyContent dan data tidak diubah
 interface DummyContentProps {
   title: string;
   customText: string;
