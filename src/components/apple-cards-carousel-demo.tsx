@@ -10,8 +10,9 @@ export default function AppleCardsCarouselDemo() {
 
   return (
     <div className="w-full h-full py-20">
+      {/* Teks ini telah diubah sesuai permintaan */}
       <h2 className="max-w-7xl mx-auto pl-4 text-xl md:text-5xl font-bold text-neutral-800 dark:text-neutral-200 font-sans">
-        Get to know your iSad.
+        Layanan Bisnovo
       </h2>
       <Carousel items={cards} />
     </div>
