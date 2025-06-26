@@ -20,8 +20,7 @@ const LOGOS = [
   { name: "Vercel", image: "/vercel.svg" },
 ];
 
-// --- KODE LENGKAP DI SINI ---
-// Implementasi lengkap untuk ScrollingLogos
+// --- ScrollingLogos Component ---
 const ScrollingLogos = () => {
   return (
     <section className="mx-auto w-full max-w-5xl lg:max-w-7xl px-0 md:px-6 lg:px-8 mt-16">
@@ -60,7 +59,7 @@ const Hero = () => {
           <div className="w-2.5 h-2.5 rounded-full bg-primary/60 animate-ping absolute"></div>
           <div className="w-1.5 h-1.5 rounded-full bg-primary absolute"></div>
         </div>
-        <span className="inline-flex items-center justify-center gap-2 bg-[linear-gradient(110deg,#b2a8fd,45%,#8678f9,55%,#c7d2fe)] bg-[length:200%_100%] bg-clip-text text-sm text-transparent animate-background-shine">
+        <span className="inline-flex items-center justify-center gap-2 bg-[linear-gradient(110deg,#000103,45%,#1e2631,55%,#000103)] bg-[length:200%_100%] bg-clip-text text-sm text-transparent animate-background-shine">
           {heroContent.badge.mainText}
           <span className="text-xs text-secondary-foreground px-1.5 py-0.5 rounded-full bg-gradient-to-b from-foreground/20 to-foreground/10 flex items-center justify-center">
             {heroContent.badge.subText}
@@ -94,17 +93,17 @@ const Hero = () => {
       <ScrollingLogos />
 
       <style jsx>{`
-        @keyframes shine {
-          0% {
-            background-position: 200% 0;
+        @keyframes background-shine {
+          from {
+            background-position: 0 0;
           }
-          100% {
+          to {
             background-position: -200% 0;
           }
         }
 
         .animate-background-shine {
-          animation: shine 4s linear infinite;
+          animation: background-shine 2s linear infinite;
         }
       `}</style>
     </div>
