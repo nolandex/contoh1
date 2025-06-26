@@ -79,13 +79,13 @@ const AnimatedTestimonials = ({
               exit={{ y: -20, opacity: 0 }}
               transition={{ duration: 0.2, ease: "easeInOut" }}
             >
-              <h3 className="text-2xl font-bold text-black dark:text-white">
+              <h3 className="text-2xl font-bold text-white">
                 {testimonials[active].name}
               </h3>
-              <p className="text-sm text-gray-500 dark:text-neutral-500">
+              <p className="text-sm text-white/80">
                 {testimonials[active].designation}
               </p>
-              <blockquote className="mt-8 text-lg text-gray-500 dark:text-neutral-300">
+              <blockquote className="mt-8 text-lg text-white/90">
                 {testimonials[active].quote.split(" ").map((word, index) => (
                   <motion.span
                     key={index}
@@ -94,18 +94,18 @@ const AnimatedTestimonials = ({
                     transition={{ duration: 0.2, ease: "easeInOut", delay: 0.03 * index }}
                     className="inline-block"
                   >
-                    {word}&nbsp;
+                    {word} 
                   </motion.span>
                 ))}
               </blockquote>
             </motion.div>
           </AnimatePresence>
           <div className="flex gap-4 pt-12 md:pt-0">
-            <button onClick={handlePrev} className="group/button flex h-7 w-7 items-center justify-center rounded-full bg-gray-100 dark:bg-neutral-800">
-              <IconArrowLeft className="h-5 w-5 text-black transition-transform duration-300 group-hover/button:rotate-12 dark:text-neutral-400" />
+            <button onClick={handlePrev} className="group/button flex h-7 w-7 items-center justify-center rounded-full bg-white/10 hover:bg-white/20 transition">
+              <IconArrowLeft className="h-5 w-5 text-white transition-transform duration-300 group-hover/button:rotate-12" />
             </button>
-            <button onClick={handleNext} className="group/button flex h-7 w-7 items-center justify-center rounded-full bg-gray-100 dark:bg-neutral-800">
-              <IconArrowRight className="h-5 w-5 text-black transition-transform duration-300 group-hover/button:-rotate-12 dark:text-neutral-400" />
+            <button onClick={handleNext} className="group/button flex h-7 w-7 items-center justify-center rounded-full bg-white/10 hover:bg-white/20 transition">
+              <IconArrowRight className="h-5 w-5 text-white transition-transform duration-300 group-hover/button:-rotate-12" />
             </button>
           </div>
         </div>
@@ -115,23 +115,22 @@ const AnimatedTestimonials = ({
 };
 
 const Reviews = () => {
-  const testimonials = [
-    { quote: "The attention to detail and innovative features have completely transformed our workflow. This is exactly what we've been looking for.", name: "Sarah Chen", designation: "Product Manager at TechFlow", src: "https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?q=80&w=3560&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" },
-    { quote: "Implementation was seamless and the results exceeded our expectations. The platform's flexibility is remarkable.", name: "Michael Rodriguez", designation: "CTO at InnovateSphere", src: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?q=80&w=3540&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" },
-    { quote: "This solution has significantly improved our team's productivity. The intuitive interface makes complex tasks simple.", name: "Emily Watson", designation: "Operations Director at CloudScale", src: "https://images.unsplash.com/photo-1623582854588-d60de57fa33f?q=80&w=3540&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" },
-    { quote: "Outstanding support and robust features. It's rare to find a product that delivers on all its promises.", name: "James Kim", designation: "Engineering Lead at DataPro", src: "https://images.unsplash.com/photo-1636041293178-808a6762ab39?q=80&w=3464&auto=format&fit=crop&ixlib-rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%D%3D" },
-    { quote: "The scalability and performance have been game-changing for our organization. Highly recommend to any growing business.", name: "Lisa Thompson", designation: "VP of Technology at FutureNet", src: "https://images.unsplash.com/photo-1624561172888-ac93c696e10c?q=80&w=2592&auto=format&fit=crop&ixlib-rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%D%3D" },
-  ];
+  const testimonials = reviewsContent.reviews.map((review) => ({
+    quote: review.review,
+    name: review.name,
+    designation: review.username,
+    src: review.img,
+  }));
 
   return (
-    <div id="reviews" className="flex w-full flex-col items-center justify-center overflow-x-hidden py-12 md:py-16 lg:py-24">
+    <div id="reviews" className="flex w-full flex-col items-center justify-center overflow-x-hidden py-12 md:py-16 lg:py-24 bg-gray-900">
       <Container>
         <div className="mx-auto flex max-w-xl flex-col items-center text-center">
-          <SectionBadge title={reviewsContent.badge} />
-          <h2 className="mt-6 font-heading text-2xl font-medium !leading-snug md:text-4xl lg:text-5xl">
+          <SectionBadge title={reviewsContent.badge} className="text-white bg-white/10" />
+          <h2 className="mt-6 font-heading text-2xl font-medium !leading-snug md:text-4xl lg:text-5xl text-white">
             {reviewsContent.headline}
           </h2>
-          <p className="mt-6 text-center text-base text-accent-foreground/80 md:text-lg">
+          <p className="mt-6 text-center text-base text-white/80 md:text-lg">
             {reviewsContent.subheadline}
           </p>
         </div>
