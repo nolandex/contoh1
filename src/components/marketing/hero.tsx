@@ -6,26 +6,23 @@ import { heroContent } from "@/config/content";
 import { BlurText } from "../ui/blur-text";
 import { Button } from "../ui/button";
 
-// [1] Impor yang dibutuhkan untuk ScrollingLogos
 import { useTheme } from "next-themes";
 import Image from "next/image";
 import Marquee from "react-fast-marquee";
-// [DIHAPUS] Tidak perlu import dari file eksternal lagi
-// import { LOGOS } from "@/config/logos"; 
 
-// [DITAMBAHKAN] Daftar logo sekarang didefinisikan langsung di sini
+// [REVISI] Path gambar diubah agar langsung dari folder /public
 const LOGOS = [
-  { name: "Next.js", image: "/images/techStack/nextjs.svg" },
-  { name: "React", image: "/images/techStack/react.svg" },
-  { name: "Tailwind", image: "/images/techStack/tailwind.svg" },
-  { name: "Framer", image: "/images/techStack/framer.svg" },
-  { name: "Shadcnui", image: "/images/techStack/shadcnui.svg" },
-  { name: "Nextui", image: "/images/techStack/nextui.svg" },
-  { name: "TS", image: "/images/techStack/typescript.svg" },
-  { name: "Vercel", image: "/images/techStack/vercel.svg" },
+  { name: "Next.js", image: "/nextjs.svg" },
+  { name: "React", image: "/react.svg" },
+  { name: "Tailwind", image: "/tailwind.svg" },
+  { name: "Framer", image: "/framer.svg" },
+  { name: "Shadcnui", image: "/shadcnui.svg" },
+  { name: "Nextui", image: "/nextui.svg" },
+  { name: "TS", image: "/typescript.svg" },
+  { name: "Vercel", image: "/vercel.svg" },
 ];
 
-// Komponen ScrollingLogos
+// Komponen ScrollingLogos (tidak ada perubahan di sini)
 const ScrollingLogos = () => {
   const { theme } = useTheme();
   return (
@@ -52,7 +49,7 @@ const ScrollingLogos = () => {
   );
 };
 
-// Komponen utama Hero
+// Komponen utama Hero (tidak ada perubahan di sini)
 const Hero = () => {
   const scrollToPricing = () => {
     const pricingSection = document.getElementById("pricing");
@@ -126,3 +123,4 @@ const Hero = () => {
 };
 
 export default Hero;
+
