@@ -22,11 +22,11 @@ export default function AppleCardsCarouselDemo() {
 
       {selectedCard && (
         <div
-          className="fixed inset-0 bg-black bg-opacity-80 flex items-center justify-center z-50"
+          className="fixed inset-0 bg-black bg-opacity-80 flex items-start justify-center pt-20 z-50 overflow-y-auto"
           onClick={() => setSelectedCard(null)}
         >
           <div
-            className="bg-neutral-900 text-white rounded-2xl p-6 max-w-lg w-full max-h-[90vh] overflow-y-auto mx-4 shadow-lg relative"
+            className="bg-neutral-900 text-white rounded-2xl p-6 max-w-lg w-full mx-4 shadow-lg relative max-h-[90vh] overflow-y-auto"
             onClick={(e) => e.stopPropagation()}
           >
             <button
