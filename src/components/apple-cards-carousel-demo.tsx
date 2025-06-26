@@ -1,3 +1,5 @@
+// Lokasi: src/components/apple-cards-carousel-demo.tsx
+
 "use client";
 
 import React from "react";
@@ -10,12 +12,8 @@ export default function AppleCardsCarouselDemo() {
   ));
 
   return (
-    <div className="w-full h-full py-20">
-      {/* PERUBAHAN:
-        - `text-center` ditambahkan untuk membuat teks di tengah.
-        - `pl-4` dihapus agar tidak mengganggu posisi tengah.
-        - `text-neutral-800 dark:text-neutral-200` diganti dengan `text-white` agar warna teks menjadi putih.
-      */}
+    // --- REVISI DI SINI: Tambahkan id="layanan" sebagai target scroll ---
+    <div id="layanan" className="w-full h-full py-20">
       <h2 className="max-w-7xl mx-auto text-center text-xl md:text-5xl font-bold text-white font-sans">
         Layanan Bisnovo
       </h2>
@@ -51,7 +49,6 @@ const DummyContent: React.FC<DummyContentProps> = ({ title, customText }) => {
   );
 };
 
-// PERUBAHAN: Dua objek terakhir (card ke-5 dan ke-6) telah dihapus dari array ini.
 const data = [
   {
     category: "Artificial Intelligence",
@@ -97,5 +94,4 @@ const data = [
       />
     ),
   },
-  // Card ke-5 dan ke-6 telah dihapus dari sini.
 ];
