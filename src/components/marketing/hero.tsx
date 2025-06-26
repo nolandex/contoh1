@@ -4,7 +4,8 @@
 
 import { heroContent } from "@/config/content";
 import { BlurText } from "../ui/blur-text";
-import { Button } from "../ui/button";
+// Komponen Button tidak lagi digunakan, jadi bisa dihapus jika tidak ada di tempat lain.
+// import { Button } from "../ui/button"; 
 
 import Image from "next/image";
 import Marquee from "react-fast-marquee";
@@ -20,7 +21,6 @@ const LOGOS = [
   { name: "Vercel", image: "/vercel.svg" },
 ];
 
-// --- ScrollingLogos Component ---
 const ScrollingLogos = () => {
   return (
     <section className="mx-auto w-full max-w-5xl lg:max-w-7xl px-0 md:px-6 lg:px-8 mt-16">
@@ -59,6 +59,10 @@ const Hero = () => {
           <div className="w-2.5 h-2.5 rounded-full bg-primary/60 animate-ping absolute"></div>
           <div className="w-1.5 h-1.5 rounded-full bg-primary absolute"></div>
         </div>
+        {/*
+          Catatan: Class 'animate-background-shine' sekarang akan menggunakan keyframes baru.
+          Ini juga akan memengaruhi animasi pada badge ini.
+        */}
         <span className="inline-flex items-center justify-center gap-2 bg-[linear-gradient(110deg,#b2a8fd,45%,#8678f9,55%,#c7d2fe)] bg-[length:200%_100%] bg-clip-text text-sm text-transparent animate-background-shine">
           {heroContent.badge.mainText}
           <span className="text-xs text-secondary-foreground px-1.5 py-0.5 rounded-full bg-gradient-to-b from-foreground/20 to-foreground/10 flex items-center justify-center">
@@ -76,36 +80,30 @@ const Hero = () => {
         {heroContent.subheadline}
       </p>
 
-      <div className="flex items-center justify-center md:gap-x-6 mt-8">
-        <Button
-          size="lg"
+      {/* --- IMPLEMENTASI TOMBOL BARU --- */}
+      <div className="flex items-center justify-center flex-col sm:flex-row gap-4 mt-8">
+        <button
           onClick={scrollToPricing}
-          className="inline-flex h-12 animate-background-shine items-center justify-center rounded-md border border-gray-800 bg-[linear-gradient(110deg,#b2a8fd,45%,#8678f9,55%,#c7d2fe)] bg-[length:200%_100%] px-6 font-medium text-gray-100 transition-colors focus:outline-none focus:ring-2 focus:ring-purple-400 focus:ring-offset-2 focus:ring-offset-gray-50"
+          className='inline-flex h-12 animate-background-shine items-center justify-center rounded-md border border-gray-800 bg-[linear-gradient(110deg,#000103,45%,#1e2631,55%,#000103)] bg-[length:200%_100%] px-6 font-medium text-gray-400 transition-colors focus:outline-none focus:ring-2 focus:ring-gray-400 focus:ring-offset-2 focus:ring-offset-gray-50'
         >
           {heroContent.ctaPrimary.text}
-        </Button>
-        <Button
-          size="lg"
-          variant="outline"
-          className="hidden md:flex"
+        </button>
+        <button
           onClick={scrollToPricing}
+          className='hidden md:inline-flex h-12 animate-background-shine items-center justify-center rounded-md border border-gray-800 bg-[linear-gradient(110deg,#000103,45%,#1e2631,55%,#000103)] bg-[length:200%_100%] px-6 font-medium text-gray-400 transition-colors focus:outline-none focus:ring-2 focus:ring-gray-400 focus:ring-offset-2 focus:ring-offset-gray-50'
         >
           {heroContent.ctaSecondary.text}
-        </Button>
+        </button>
       </div>
+      {/* --- AKHIR IMPLEMENTASI --- */}
 
       <ScrollingLogos />
 
+      {/*
+        Keyframes telah diperbarui untuk mencocokkan animasi 'ButtonBackgroundShine'.
+        Class 'animate-background-shine' sekarang menggunakan keyframes 'background-shine' dengan durasi 2 detik.
+      */}
       <style jsx>{`
-        @keyframes shine {
-          0% {
-            background-position: 200% 0;
-          }
-          100% {
-            background-position: -200% 0;
-          }
-        }
-
         @keyframes background-shine {
           from {
             background-position: 0 0;
@@ -116,7 +114,7 @@ const Hero = () => {
         }
 
         .animate-background-shine {
-          animation: background-shine 4s linear infinite;
+          animation: background-shine 2s linear infinite;
         }
       `}</style>
     </div>
