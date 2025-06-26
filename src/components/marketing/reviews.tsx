@@ -1,20 +1,18 @@
 // Lokasi: src/components/marketing/reviews.tsx
-// Versi final yang direvisi dengan semua fitur animasi aktif.
+// Versi Workaround: Gambar pasti muncul, animasi tetap ada.
 
 "use client";
 
-// Impor komponen dasar & konten
 import { reviewsContent } from "@/config/content";
 import Container from "../global/container";
 import { SectionBadge } from "../ui/section-bade";
-
-// Impor dependensi yang sudah terverifikasi ada di package.json
 import { IconArrowLeft, IconArrowRight } from "@tabler/icons-react";
-import { AnimatePresence, motion } from "framer-motion"; // Menggunakan "framer-motion" sesuai package.json
+import { AnimatePresence, motion } from "framer-motion";
 import { useEffect, useState } from "react";
-import Image from "next/image"; // Menggunakan Image dari Next.js untuk performa
 
-// Tipe data untuk testimoni
+// [DIKEMBALIKAN] Hapus import 'Image' karena kita akan pakai 'img' biasa
+// import Image from "next/image"; 
+
 type Testimonial = {
   quote: string;
   name: string;
@@ -22,31 +20,23 @@ type Testimonial = {
   src: string;
 };
 
-// Komponen testimoni dengan logika animasi asli dari permintaan awal Anda
 const AnimatedTestimonials = ({
   testimonials,
-  autoplay = true, // Mengaktifkan autoplay secara default
+  autoplay = true,
 }: {
   testimonials: Testimonial[];
   autoplay?: boolean;
 }) => {
   const [active, setActive] = useState(0);
 
-  const handleNext = () => {
-    setActive((prev) => (prev + 1) % testimonials.length);
-  };
+  const handleNext = () => setActive((prev) => (prev + 1) % testimonials.length);
+  const handlePrev = () => setActive((prev) => (prev - 1 + testimonials.length) % testimonials.length);
 
-  const handlePrev = () => {
-    setActive((prev) => (prev - 1 + testimonials.length) % testimonials.length);
-  };
-
-  // [REVISI] Menambahkan handleNext ke dependency array untuk menghilangkan warning linting
   useEffect(() => {
     if (!autoplay) return;
-
     const interval = setInterval(handleNext, 5000);
     return () => clearInterval(interval);
-  }, [autoplay, active]); // Dijalankan ulang saat `active` berubah untuk mereset interval
+  }, [autoplay, active]);
 
   const isActive = (index: number) => index === active;
   const randomRotateY = () => Math.floor(Math.random() * 21) - 10;
@@ -54,7 +44,6 @@ const AnimatedTestimonials = ({
   return (
     <div className="mx-auto w-full max-w-sm px-4 py-16 font-sans antialiased md:max-w-4xl md:px-8 lg:px-12">
       <div className="relative grid grid-cols-1 items-center gap-20 md:grid-cols-2">
-        {/* Kolom Gambar dengan Animasi Tumpukan Kartu */}
         <div className="relative h-80 w-full">
           <AnimatePresence>
             {testimonials.map((testimonial, index) => (
@@ -67,27 +56,25 @@ const AnimatedTestimonials = ({
                   z: isActive(index) ? 0 : -100,
                   rotate: isActive(index) ? 0 : randomRotateY(),
                   zIndex: isActive(index) ? 40 : testimonials.length - index,
-                  y: isActive(index) ? [0, -40, 0] : 0, // Efek 'hop' yang lebih halus
+                  y: isActive(index) ? [0, -40, 0] : 0,
                 }}
                 exit={{ opacity: 0, scale: 0.9, z: 100, rotate: randomRotateY() }}
                 transition={{ duration: 0.4, ease: "easeInOut" }}
                 className="absolute inset-0 origin-bottom"
               >
-                <Image
+                {/* [PERBAIKAN UTAMA] Kembali menggunakan tag <img> biasa */}
+                <img
                   src={testimonial.src}
                   alt={testimonial.name}
                   width={500}
                   height={500}
                   draggable={false}
                   className="h-full w-full rounded-3xl object-cover object-center"
-                  priority={isActive(index)} // Memberi prioritas pada gambar aktif
                 />
               </motion.div>
             ))}
           </AnimatePresence>
         </div>
-
-        {/* Kolom Teks dengan Animasi Kata per Kata */}
         <div className="flex flex-col justify-between py-4">
           <AnimatePresence mode="wait">
             <motion.div
@@ -103,7 +90,6 @@ const AnimatedTestimonials = ({
               <p className="text-sm text-gray-500 dark:text-neutral-500">
                 {testimonials[active].designation}
               </p>
-              {/* [REVISI] Menggunakan tag <blockquote> yang lebih semantik untuk kutipan */}
               <blockquote className="mt-8 text-lg text-gray-500 dark:text-neutral-300">
                 {testimonials[active].quote.split(" ").map((word, index) => (
                   <motion.span
@@ -134,13 +120,12 @@ const AnimatedTestimonials = ({
 };
 
 const Reviews = () => {
-  // Menggunakan data testimoni lengkap dari permintaan awal
   const testimonials = [
     { quote: "The attention to detail and innovative features have completely transformed our workflow. This is exactly what we've been looking for.", name: "Sarah Chen", designation: "Product Manager at TechFlow", src: "https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?q=80&w=3560&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" },
-    { quote: "Implementation was seamless and the results exceeded our expectations. The platform's flexibility is remarkable.", name: "Michael Rodriguez", designation: "CTO at InnovateSphere", src: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?q=80&w=3540&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%D%3D" },
-    { quote: "This solution has significantly improved our team's productivity. The intuitive interface makes complex tasks simple.", name: "Emily Watson", designation: "Operations Director at CloudScale", src: "https://images.unsplash.com/photo-1623582854588-d60de57fa33f?q=80&w=3540&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%D%3D" },
+    { quote: "Implementation was seamless and the results exceeded our expectations. The platform's flexibility is remarkable.", name: "Michael Rodriguez", designation: "CTO at InnovateSphere", src: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?q=80&w=3540&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" },
+    { quote: "This solution has significantly improved our team's productivity. The intuitive interface makes complex tasks simple.", name: "Emily Watson", designation: "Operations Director at CloudScale", src: "https://images.unsplash.com/photo-1623582854588-d60de57fa33f?q=80&w=3540&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" },
     { quote: "Outstanding support and robust features. It's rare to find a product that delivers on all its promises.", name: "James Kim", designation: "Engineering Lead at DataPro", src: "https://images.unsplash.com/photo-1636041293178-808a6762ab39?q=80&w=3464&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%D%3D" },
-    { quote: "The scalability and performance have been game-changing for our organization. Highly recommend to any growing business.", name: "Lisa Thompson", designation: "VP of Technology at FutureNet", src: "https://images.unsplash.com/photo-1624561172888-ac93c696e10c?q=80&w=2592&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%D%3D" },
+    { quote: "The scalability and performance have been game-changing for our organization. Highly recommend to any growing business.", name: "Lisa Thompson", designation: "VP of Technology at FutureNet", src: "https://images.unsplash.com/photo-1624561172888-ac93c696e10c?q=80&w=2592&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" },
   ];
 
   return (
@@ -162,4 +147,3 @@ const Reviews = () => {
 };
 
 export default Reviews;
-
