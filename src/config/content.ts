@@ -73,40 +73,34 @@ export const perksContent = {
   subheadline: `${siteConfig.companyName} menyediakan semua tools yang dibutuhkan untuk memulai bisnis online tanpa ribet dan mahal.`,
   perks: [
     {
-      title: "Website Profesional",
-      description:
-        "Website responsive siap pakai dengan desain modern yang bisa langsung digunakan untuk jualan.",
-      icon: Globe,
+      title: "Support Reseller",
+      description: "Website dan alat promosi gratis untuk membantu reseller memulai bisnis dengan mudah.",
+      icon: Users,
     },
     {
-      title: "Chatbot Otomatis",
-      description:
-        "Chatbot WhatsApp & Instagram yang bisa otomatis menangani penjualan 24/7 tanpa operator.",
-      icon: MessageSquare,
-    },
-    {
-      title: "Konten Media Sosial",
-      description:
-        "30 hari konten siap posting untuk Instagram & TikTok termasuk desain dan caption menarik.",
-      icon: Smartphone,
-    },
-    {
-      title: "Strategi Marketing",
-      description:
-        "Panduan lengkap promosi organik & berbayar yang sudah terbukti meningkatkan penjualan.",
+      title: "Kolaborasi Bisnis Profit Tinggi",
+      description: "Peluang bisnis dengan permintaan tinggi dan keuntungan besar melalui kolaborasi strategis.",
       icon: TrendingUp,
     },
     {
-      title: "Copywriting Menjual",
-      description:
-        "Template copywriting siap pakai yang sudah dioptimalkan untuk meningkatkan konversi penjualan.",
+      title: "Freemateri Iklan",
+      description: "Klien dapat mengelola program iklan sendiri dengan materi iklan gratis yang kami sediakan.",
       icon: FileText,
     },
     {
-      title: "Sistem Reseller",
-      description:
-        "Peluang penghasilan tambahan dengan menjadi reseller tanpa modal dan support penuh dari kami.",
-      icon: Users,
+      title: "Fast Respon",
+      description: "Tim Bisnovo dengan 3 admin siap memberikan respon cepat untuk mendukung bisnis Anda.",
+      icon: MessageSquare,
+    },
+    {
+      title: "Paket Bisnis Terjangkau",
+      description: "Item digital marketing lengkap untuk membangun bisnis profesional dengan harga terjangkau.",
+      icon: Smartphone,
+    },
+    {
+      title: "Professional Team",
+      description: "Bisnovo didukung oleh tim marketing berkualitas untuk memastikan kesuksesan bisnis Anda.",
+      icon: Globe,
     },
   ] as Perk[],
 };
@@ -188,7 +182,7 @@ export const pricingContent = {
         "Akses ke Komunitas Reseller",
         "Bisa Dijalankan Sampingan",
       ],
-      orderUrl: `https://wa.me/${siteConfig.contactPhone}?text=Halo%20Bisnovo%2C%20saya%20tertarik%20dengan%20paket%20%22Paket%20Reseller%22.%20Mohon%20informasinya.`,
+      orderUrl: `https://wa.me/${siteConfig.contactPhone}?text=Halo%20Bisnovo%2C%20saya%20tertarik%20dengan%20paket%20%22Pakuk%20Reseller%22.%20Mohon%20informasinya.`,
     },
   ] as Plan[],
 };
