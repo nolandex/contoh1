@@ -26,7 +26,7 @@ export default function AppleCardsCarouselDemo() {
           onClick={() => setSelectedCard(null)}
         >
           <div
-            className="bg-neutral-900 text-white rounded-2xl p-6 max-w-lg w-full mx-4 shadow-lg relative"
+            className="bg-neutral-900 text-white rounded-2xl p-6 max-w-lg w-full max-h-[90vh] overflow-y-auto mx-4 shadow-lg relative"
             onClick={(e) => e.stopPropagation()}
           >
             <button
@@ -78,7 +78,7 @@ const data = [
         title="Syarat dan Ketentuan - Program Reseller Bisnovo"
         customText={`1. Pendaftaran reseller gratis dan terbuka untuk umum.\n
 2. Reseller akan mendapatkan website katalog dan link promosi pribadi.\n
-3. Setiap penjualan melalui link akan mendapatkan profit +100%, dan bisa lebih tergantung produk.\n
+3. Setiap penjualan melalui link akan mendapatkan komisi minimal Rp20.000 / produk, dan bisa lebih tergantung produk.\n
 4. Reseller dilarang menjual dengan harga di bawah harga resmi Bisnovo.\n
 5. Promosi dilarang mengandung unsur SARA, kebohongan, atau menjanjikan hal yang tidak ada dalam paket.\n
 6. Komisi akan dibayarkan setiap minggu (Senin–Jumat) melalui transfer bank atau e-wallet.\n
