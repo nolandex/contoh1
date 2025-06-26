@@ -55,7 +55,7 @@ export const heroContent = {
     subText: "Cepat dan mudah",
   },
   headline: "Bisnovo Team Siap Bangun Bisnis dengan Profesional",
-  subheadline: `Gabung dalam program reseller, kembangkan ide melalui kolaborasi bisnis, dan nikmati keuntungan dari bagi hasil iklan bersama kami}.`,
+  subheadline: `Gabung dalam program reseller, kembangkan ide melalui kolaborasi bisnis, dan nikmati keuntungan dari bagi hasil iklan bersama kami`,
   ctaPrimary: {
     text: "Lihat Paket Kami",
     href: "#pricing",
