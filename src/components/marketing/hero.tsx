@@ -74,17 +74,17 @@ const Hero = () => {
         {heroContent.subheadline}
       </p>
 
-      {/* --- Tombol dengan Warna Ungu yang Lebih Gelap --- */}
+      {/* --- Tombol dengan Warna dan Ukuran yang Disesuaikan --- */}
       <div className="flex items-center justify-center flex-col sm:flex-row gap-4 mt-8">
         <button
           onClick={scrollToPricing}
-          className='inline-flex h-12 animate-background-shine items-center justify-center rounded-md border border-violet-800 bg-[linear-gradient(110deg,#5b21b6,45%,#7c3aed,55%,#5b21b6)] bg-[length:200%_100%] px-8 font-medium text-slate-50 transition-colors focus:outline-none focus:ring-2 focus:ring-violet-600 focus:ring-offset-2 focus:ring-offset-background'
+          className='inline-flex h-12 animate-background-shine items-center justify-center rounded-md border border-violet-700 bg-[linear-gradient(110deg,#6d28d9,45%,#8b5cf6,55%,#6d28d9)] bg-[length:200%_100%] px-6 font-medium text-slate-100 transition-colors focus:outline-none focus:ring-2 focus:ring-violet-500 focus:ring-offset-2 focus:ring-offset-background'
         >
           {heroContent.ctaPrimary.text}
         </button>
         <button
           onClick={scrollToPricing}
-          className='hidden md:inline-flex h-12 animate-background-shine items-center justify-center rounded-md border border-violet-800 bg-[linear-gradient(110deg,#5b21b6,45%,#7c3aed,55%,#5b21b6)] bg-[length:200%_100%] px-8 font-medium text-slate-50 transition-colors focus:outline-none focus:ring-2 focus:ring-violet-600 focus:ring-offset-2 focus:ring-offset-background'
+          className='hidden md:inline-flex h-12 animate-background-shine items-center justify-center rounded-md border border-violet-700 bg-[linear-gradient(110deg,#6d28d9,45%,#8b5cf6,55%,#6d28d9)] bg-[length:200%_100%] px-6 font-medium text-slate-100 transition-colors focus:outline-none focus:ring-2 focus:ring-violet-500 focus:ring-offset-2 focus:ring-offset-background'
         >
           {heroContent.ctaSecondary.text}
         </button>
