@@ -25,8 +25,6 @@ const AnimatedTestimonials = ({
 }) => {
   const [active, setActive] = useState(0);
 
-  // Menggunakan useCallback untuk memoize fungsi agar tidak dibuat ulang pada setiap render.
-  // Ini mengoptimalkan useEffect di bawah.
   const handleNext = useCallback(() => {
     setActive((prev) => (prev + 1) % testimonials.length);
   }, [testimonials.length]);
@@ -35,8 +33,6 @@ const AnimatedTestimonials = ({
     setActive((prev) => (prev - 1 + testimonials.length) % testimonials.length);
   }, [testimonials.length]);
 
-  // useEffect untuk autoplay.
-  // Dengan handleNext di dalam useCallback, interval tidak akan di-reset pada setiap render.
   useEffect(() => {
     if (!autoplay) return;
     const interval = setInterval(handleNext, 5000);
@@ -142,8 +138,9 @@ const Reviews = () => {
     <div id="reviews" className="flex w-full flex-col items-center justify-center overflow-hidden bg-gray-900 py-12 md:py-16 lg:py-24">
       <Container>
         <div className="mx-auto flex max-w-xl flex-col items-center text-center">
-          {/* Menyesuaikan badge untuk tema gelap */}
-          <SectionBadge title={reviewsContent.badge} className="bg-white/10 text-white" />
+          {/* PERBAIKAN: Menghapus 'className' untuk mencegah error build */}
+          <SectionBadge title={reviewsContent.badge} />
+          
           <h2 className="mt-6 font-heading text-2xl font-medium !leading-snug text-white md:text-4xl lg:text-5xl">
             {reviewsContent.headline}
           </h2>
