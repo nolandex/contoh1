@@ -4,8 +4,6 @@
 
 import { heroContent } from "@/config/content";
 import { BlurText } from "../ui/blur-text";
-// Komponen Button tidak lagi digunakan, jadi impor ini bisa dihapus.
-// import { Button } from "../ui/button";
 
 import Image from "next/image";
 import Marquee from "react-fast-marquee";
@@ -76,17 +74,17 @@ const Hero = () => {
         {heroContent.subheadline}
       </p>
 
-      {/* --- Tombol Ungu dengan Efek Shine --- */}
+      {/* --- Tombol dengan Warna Ungu yang Lebih Gelap --- */}
       <div className="flex items-center justify-center flex-col sm:flex-row gap-4 mt-8">
         <button
           onClick={scrollToPricing}
-          className='inline-flex h-12 animate-background-shine items-center justify-center rounded-md border border-primary/60 bg-[linear-gradient(110deg,#8678f9,45%,#c7d2fe,55%,#8678f9)] bg-[length:200%_100%] px-8 font-medium text-primary-foreground transition-colors focus:outline-none focus:ring-2 focus:ring-primary/80 focus:ring-offset-2 focus:ring-offset-background'
+          className='inline-flex h-12 animate-background-shine items-center justify-center rounded-md border border-violet-800 bg-[linear-gradient(110deg,#5b21b6,45%,#7c3aed,55%,#5b21b6)] bg-[length:200%_100%] px-8 font-medium text-slate-50 transition-colors focus:outline-none focus:ring-2 focus:ring-violet-600 focus:ring-offset-2 focus:ring-offset-background'
         >
           {heroContent.ctaPrimary.text}
         </button>
         <button
           onClick={scrollToPricing}
-          className='hidden md:inline-flex h-12 animate-background-shine items-center justify-center rounded-md border border-primary/60 bg-[linear-gradient(110deg,#8678f9,45%,#c7d2fe,55%,#8678f9)] bg-[length:200%_100%] px-8 font-medium text-primary-foreground transition-colors focus:outline-none focus:ring-2 focus:ring-primary/80 focus:ring-offset-2 focus:ring-offset-background'
+          className='hidden md:inline-flex h-12 animate-background-shine items-center justify-center rounded-md border border-violet-800 bg-[linear-gradient(110deg,#5b21b6,45%,#7c3aed,55%,#5b21b6)] bg-[length:200%_100%] px-8 font-medium text-slate-50 transition-colors focus:outline-none focus:ring-2 focus:ring-violet-600 focus:ring-offset-2 focus:ring-offset-background'
         >
           {heroContent.ctaSecondary.text}
         </button>
@@ -107,7 +105,7 @@ const Hero = () => {
         }
 
         .animate-background-shine {
-          animation: background-shine 2s linear infinite;
+          animation: background-shine 3s linear infinite;
         }
       `}</style>
     </div>
