@@ -1,5 +1,4 @@
 // Lokasi: src/components/marketing/reviews.tsx
-// Versi dengan perbaikan responsif.
 
 "use client";
 
@@ -9,9 +8,6 @@ import { SectionBadge } from "../ui/section-bade";
 import { IconArrowLeft, IconArrowRight } from "@tabler/icons-react";
 import { AnimatePresence, motion } from "framer-motion";
 import { useEffect, useState } from "react";
-
-// Kembali menggunakan <img> biasa untuk menghindari masalah konfigurasi.
-// Ini adalah solusi paling stabil berdasarkan riwayat percakapan kita.
 
 type Testimonial = {
   quote: string;
@@ -128,8 +124,7 @@ const Reviews = () => {
   ];
 
   return (
-    // [PERBAIKAN DI SINI] Menambahkan `overflow-x-hidden` untuk mencegah scroll horizontal
-    <div className="flex w-full flex-col items-center justify-center overflow-x-hidden py-12 md:py-16 lg:py-24">
+    <div id="reviews" className="flex w-full flex-col items-center justify-center overflow-x-hidden py-12 md:py-16 lg:py-24">
       <Container>
         <div className="mx-auto flex max-w-xl flex-col items-center text-center">
           <SectionBadge title={reviewsContent.badge} />
