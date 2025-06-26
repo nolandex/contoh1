@@ -19,8 +19,8 @@ const navLinks = [
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false)
 
-  // Fungsi untuk menangani smooth scroll ke section tujuan
-  const handleScroll = (e) => {
+  // --- REVISI ERROR --- Menambahkan kembali tipe data untuk parameter 'e'
+  const handleScroll = (e: React.MouseEvent<HTMLAnchorElement>) => {
     e.preventDefault();
     const href = e.currentTarget.href;
     const targetId = href.replace(/.*#/, "");
@@ -30,7 +30,6 @@ export default function Navbar() {
       elem.scrollIntoView({
         behavior: "smooth",
       });
-      // Tutup menu mobile setelah link diklik
       setIsOpen(false);
     }
   };
@@ -38,7 +37,7 @@ export default function Navbar() {
   return (
     <header className="fixed top-0 left-0 w-full z-50 bg-[rgba(10,10,10,0.6)] backdrop-blur-md">
       <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* --- REVISI UKURAN --- Mengurangi tinggi Navbar */}
+        {/* Tinggi Navbar sudah diperkecil sesuai permintaan */}
         <div className="flex items-center justify-between h-14">
           {/* Logo */}
           <div className="flex-shrink-0 text-white font-semibold text-lg">
@@ -73,8 +72,7 @@ export default function Navbar() {
 
         {/* Mobile Menu */}
         {isOpen && (
-           // --- REVISI UKURAN --- Mengurangi padding vertikal menu mobile
-          <div className="lg:hidden w-full px-4 pb-4 pt-2">
+           <div className="lg:hidden w-full px-4 pb-4 pt-2">
             <ul className="space-y-2">
               {navLinks.map(({ href, label, Icon }) => (
                 <li key={href}>
