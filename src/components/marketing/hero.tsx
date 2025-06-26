@@ -59,7 +59,7 @@ const Hero = () => {
           <div className="w-2.5 h-2.5 rounded-full bg-primary/60 animate-ping absolute"></div>
           <div className="w-1.5 h-1.5 rounded-full bg-primary absolute"></div>
         </div>
-        <span className="inline-flex items-center justify-center gap-2 bg-[linear-gradient(110deg,#000103,45%,#1e2631,55%,#000103)] bg-[length:200%_100%] bg-clip-text text-sm text-transparent animate-background-shine">
+        <span className="inline-flex items-center justify-center gap-2 bg-[linear-gradient(110deg,#b2a8fd,45%,#8678f9,55%,#c7d2fe)] bg-[length:200%_100%] bg-clip-text text-sm text-transparent animate-background-shine">
           {heroContent.badge.mainText}
           <span className="text-xs text-secondary-foreground px-1.5 py-0.5 rounded-full bg-gradient-to-b from-foreground/20 to-foreground/10 flex items-center justify-center">
             {heroContent.badge.subText}
@@ -77,7 +77,11 @@ const Hero = () => {
       </p>
 
       <div className="flex items-center justify-center md:gap-x-6 mt-8">
-        <Button size="lg" onClick={scrollToPricing}>
+        <Button
+          size="lg"
+          onClick={scrollToPricing}
+          className="inline-flex h-12 animate-background-shine items-center justify-center rounded-md border border-gray-800 bg-[linear-gradient(110deg,#000103,45%,#1e2631,55%,#000103)] bg-[length:200%_100%] px-6 font-medium text-gray-400 transition-colors focus:outline-none focus:ring-2 focus:ring-gray-400 focus:ring-offset-2 focus:ring-offset-gray-50"
+        >
           {heroContent.ctaPrimary.text}
         </Button>
         <Button
@@ -93,6 +97,15 @@ const Hero = () => {
       <ScrollingLogos />
 
       <style jsx>{`
+        @keyframes shine {
+          0% {
+            background-position: 200% 0;
+          }
+          100% {
+            background-position: -200% 0;
+          }
+        }
+
         @keyframes background-shine {
           from {
             background-position: 0 0;
