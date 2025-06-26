@@ -5,6 +5,7 @@
 import { heroContent } from "@/config/content";
 import { BlurText } from "../ui/blur-text";
 import { Button } from "../ui/button";
+import { ShinyButton } from "@/components/magicui/shiny-button"; // <-- 1. Impor ShinyButton
 
 import Image from "next/image";
 import Marquee from "react-fast-marquee";
@@ -20,7 +21,6 @@ const LOGOS = [
   { name: "Vercel", image: "/vercel.svg" },
 ];
 
-// --- KODE LENGKAP DI SINI ---
 // Implementasi lengkap untuk ScrollingLogos
 const ScrollingLogos = () => {
   return (
@@ -78,9 +78,12 @@ const Hero = () => {
       </p>
 
       <div className="flex items-center justify-center md:gap-x-6 mt-8">
-        <Button size="lg" onClick={scrollToPricing}>
-          {heroContent.ctaPrimary.text}
-        </Button>
+        {/* -- 2. Ganti Button utama dengan ShinyButton -- */}
+        <ShinyButton onClick={scrollToPricing}>
+           {heroContent.ctaPrimary.text}
+        </ShinyButton>
+        
+        {/* -- Biarkan Button sekunder untuk kontras visual -- */}
         <Button
           size="lg"
           variant="outline"
