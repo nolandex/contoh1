@@ -1,10 +1,23 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Carousel, Card } from "@/components/ui/apple-cards-carousel";
 
 export default function AppleCardsCarouselDemo() {
   const [selectedCard, setSelectedCard] = useState<any | null>(null);
+
+  // Lock scroll ketika modal aktif
+  useEffect(() => {
+    if (selectedCard) {
+      document.body.classList.add("overflow-hidden");
+    } else {
+      document.body.classList.remove("overflow-hidden");
+    }
+
+    return () => {
+      document.body.classList.remove("overflow-hidden");
+    };
+  }, [selectedCard]);
 
   const cards = data.slice(0, 4).map((card, index) => (
     <div key={card.src} onClick={() => setSelectedCard(card)}>
