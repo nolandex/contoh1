@@ -146,43 +146,39 @@ export const reviewsContent = {
 // PRICING CONTENT
 export const pricingContent = {
   badge: "Paket Lengkap",
-  headline: "Hanya Rp200rb untuk Semua Ini",
+  headline: "Hanya Mulai Rp50rb untuk Semua Ini",
   subheadline:
     "Dapatkan semua yang Anda butuhkan untuk mulai bisnis online hari ini juga.",
   plans: [
     {
       id: "basic",
-      title: "Paket Starter",
-      desc:
-        "Solusi lengkap untuk memulai bisnis online Anda dengan cepat dan mudah.",
-      monthlyPrice: 200,
+      title: "Kolab Iklan",
+      desc: "Paket iklan terjangkau untuk meningkatkan jangkauan bisnis Anda melalui platform populer.",
+      monthlyPrice: 100,
       buttonText: "Mulai Sekarang",
       features: [
-        "Website Profesional Siap Pakai",
-        "Chatbot WhatsApp & Instagram",
-        "30 Konten Media Sosial",
-        "Template Copywriting Menjual",
-        "Strategi Marketing Step-by-Step",
-        "Support 1 Minggu Gratis",
+        "Meta Ads / TikTok Ads",
+        "Strategi Iklan yang Terbukti",
+        "Laporan Performa Iklan",
+        "Konsultasi Iklan 1 Minggu",
       ],
-      orderUrl: `https://wa.me/${siteConfig.contactPhone}?text=Halo%20Bisnovo%2C%20saya%20tertarik%20dengan%20paket%20%22Paket%20Starter%22.%20Mohon%20informasinya.`,
+      orderUrl: `https://wa.me/${siteConfig.contactPhone}?text=Halo%20Bisnovo%2C%20saya%20tertarik%20dengan%20paket%20%22Kolab%20Iklan%22.%20Mohon%20informasinya.`,
     },
     {
       id: "pro",
-      title: "Paket Reseller",
-      desc: "Untuk Anda yang ingin jadi reseller dan dapat penghasilan tambahan.",
-      monthlyPrice: 0,
-      badge: "Tanpa Modal",
-      buttonText: "Daftar Reseller",
+      title: "Paket Bisnis Digital",
+      desc: "Solusi lengkap untuk membangun kehadiran digital profesional dengan budget terjangkau.",
+      monthlyPrice: 50,
+      buttonText: "Daftar Sekarang",
       features: [
-        "Website Jualan Sendiri",
-        "Komisi Rp20-50rb per Penjualan",
-        "Training & Support Lengkap",
-        "Tools Marketing Eksklusif",
-        "Akses ke Komunitas Reseller",
-        "Bisa Dijalankan Sampingan",
+        "Website",
+        "Free Domain my.id / biz.id dan Hosting",
+        "10 Konten Desain",
+        "Sosmed Boost",
+        "SEO Basic",
+        "Video Promosi",
       ],
-      orderUrl: `https://wa.me/${siteConfig.contactPhone}?text=Halo%20Bisnovo%2C%20saya%20tertarik%20dengan%20paket%20%22Pakuk%20Reseller%22.%20Mohon%20informasinya.`,
+      orderUrl: `https://wa.me/${siteConfig.contactPhone}?text=Halo%20Bisnovo%2C%20saya%20tertarik%20dengan%20paket%20%22Paket%20Bisnis%20Digital%22.%20Mohon%20informasinya.`,
     },
   ] as Plan[],
 };
@@ -192,24 +188,24 @@ export const footerContent = {
   faqHeadline: "Pertanyaan Umum",
   faqs: [
     {
-      question: "Berapa lama setup paketnya?",
+      question: "Apa itu Kolab Iklan?",
       answer:
-        "Proses setup hanya membutuhkan waktu 6-24 jam setelah pembayaran diterima.",
+        "Kolab Iklan adalah paket untuk mempromosikan bisnis Anda melalui Meta Ads atau TikTok Ads dengan strategi terbukti dan laporan performa.",
     },
     {
-      question: "Apakah perlu technical skill?",
+      question: "Apakah website di Paket Bisnis Digital bisa kustom?",
       answer:
-        "Tidak sama sekali! Kami yang akan handle semua setup teknis untuk Anda.",
+        "Ya, website dapat disesuaikan dengan kebutuhan bisnis Anda dengan template profesional yang kami sediakan.",
     },
     {
-      question: "Bagaimana cara jadi reseller?",
+      question: "Berapa lama proses setup iklan atau website?",
       answer:
-        "Daftar gratis melalui form di halaman reseller, dan Anda akan mendapatkan akses ke semua tools yang dibutuhkan.",
+        "Proses setup iklan dan website selesai dalam 6-24 jam setelah konfirmasi pembayaran.",
     },
     {
-      question: "Apakah ada garansi?",
+      question: "Apakah ada biaya tambahan untuk domain atau hosting?",
       answer:
-        "Kami memberikan garansi 7 hari uang kembali jika Anda tidak puas dengan layanan kami.",
+        "Tidak, domain my.id/biz.id dan hosting sudah termasuk dalam Paket Bisnis Digital tanpa biaya tambahan.",
     },
   ] as Faq[],
 };
