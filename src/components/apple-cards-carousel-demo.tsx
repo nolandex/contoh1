@@ -6,16 +6,19 @@ import { Carousel, Card } from "@/components/ui/apple-cards-carousel";
 export default function AppleCardsCarouselDemo() {
   const [selectedCard, setSelectedCard] = useState<any | null>(null);
 
-  // Lock scroll ketika modal aktif
+  // Lock scroll pada html dan body saat modal terbuka
   useEffect(() => {
     if (selectedCard) {
-      document.body.classList.add("overflow-hidden");
+      document.body.style.overflow = "hidden";
+      document.documentElement.style.overflow = "hidden";
     } else {
-      document.body.classList.remove("overflow-hidden");
+      document.body.style.overflow = "";
+      document.documentElement.style.overflow = "";
     }
 
     return () => {
-      document.body.classList.remove("overflow-hidden");
+      document.body.style.overflow = "";
+      document.documentElement.style.overflow = "";
     };
   }, [selectedCard]);
 
@@ -35,11 +38,11 @@ export default function AppleCardsCarouselDemo() {
 
       {selectedCard && (
         <div
-          className="fixed inset-0 bg-black bg-opacity-80 flex items-start justify-center pt-20 z-50 overflow-y-auto"
+          className="fixed inset-0 bg-black bg-opacity-80 flex items-center justify-center z-50"
           onClick={() => setSelectedCard(null)}
         >
           <div
-            className="bg-neutral-900 text-white rounded-2xl p-6 max-w-lg w-full mx-4 shadow-lg relative max-h-[90vh] overflow-y-auto"
+            className="bg-neutral-900 text-white rounded-2xl p-6 max-w-lg w-full max-h-[90vh] overflow-y-auto mx-4 shadow-lg relative"
             onClick={(e) => e.stopPropagation()}
           >
             <button
