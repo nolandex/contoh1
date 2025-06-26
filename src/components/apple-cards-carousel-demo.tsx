@@ -1,47 +1,78 @@
-// Lokasi: src/components/apple-cards-carousel-demo.tsx
-
 "use client";
 
-import React from "react";
-import { Carousel, Card, type CardProps } from "@/components/ui/apple-cards-carousel";
+import React, { useState } from "react";
+import { Carousel, Card } from "@/components/ui/apple-cards-carousel";
+import { cn } from "@/lib/utils";
 
-// --- PASTIKAN 'export default' ADA DI BARIS INI ---
-// Inilah yang menyebabkan error sebelumnya.
 export default function AppleCardsCarouselDemo() {
+  const [selectedCard, setSelectedCard] = useState<any | null>(null);
+
+  // Hanya ambil 4 card pertama
   const cards = data.slice(0, 4).map((card, index) => (
-    <Card key={card.src} card={card} index={index} />
+    <div key={card.src} onClick={() => setSelectedCard(card)}>
+      <Card card={card} index={index} />
+    </div>
   ));
 
   return (
-    <div id="layanan" className="w-full h-full py-20">
-      <h2 className="max-w-7xl mx-auto text-center text-xl md:text-5xl font-bold text-neutral-800 dark:text-white font-sans">
+    <div className="w-full h-full py-20 relative">
+      <h2 className="max-w-7xl mx-auto text-center text-xl md:text-5xl font-bold text-white font-sans">
         Layanan Bisnovo
       </h2>
+
       <Carousel items={cards} />
+
+      {/* Modal */}
+      {selectedCard && (
+        <div
+          className="fixed inset-0 bg-black bg-opacity-80 flex items-center justify-center z-50"
+          onClick={() => setSelectedCard(null)}
+        >
+          <div
+            className="bg-neutral-900 text-white rounded-2xl p-6 max-w-lg w-full mx-4 shadow-lg relative"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <button
+              className="absolute top-2 right-3 text-white text-2xl"
+              onClick={() => setSelectedCard(null)}
+            >
+              &times;
+            </button>
+            <h3 className="text-2xl font-bold mb-4">{selectedCard.title}</h3>
+            <div className="mb-4">{selectedCard.content}</div>
+          </div>
+        </div>
+      )}
     </div>
   );
 }
 
-// Props untuk DummyContent
 interface DummyContentProps {
   title: string;
   customText: string;
 }
 
-// Konten di dalam modal dengan latar hitam dan teks putih
 const DummyContent: React.FC<DummyContentProps> = ({ title, customText }) => {
   return (
-    <div className="bg-black p-8 md:p-14 rounded-3xl mb-4">
-      <h3 className="text-xl md:text-3xl font-bold text-white mb-4">{title}</h3>
-      <p className="text-neutral-300 text-base md:text-2xl font-sans max-w-3xl mx-auto">
+    <div>
+      <p className="text-white text-base md:text-lg font-sans mb-4">
         {customText}
       </p>
+      <img
+        src="/1.jpeg"
+        alt={`${title} mockup`}
+        className="mx-auto rounded-xl max-w-full h-auto"
+        onError={(e) => {
+          const target = e.target as HTMLImageElement;
+          target.style.display = "none";
+          console.error("Gambar gagal dimuat. URL:", target.src, "Error:", e);
+        }}
+      />
     </div>
   );
 };
 
-// Data array dengan tipe yang jelas
-const data: CardProps[] = [
+const data = [
   {
     category: "Artificial Intelligence",
     title: "You can do more with AI.",
