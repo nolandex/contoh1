@@ -70,7 +70,7 @@ const AnimatedTestimonials = ({
             ))}
           </AnimatePresence>
         </div>
-        <div className="flex flex-col justify-between py-4">
+        <div className="flex flex-col justify-between py-4 relative">
           <AnimatePresence mode="wait">
             <motion.div
               key={active}
@@ -100,12 +100,12 @@ const AnimatedTestimonials = ({
               </blockquote>
             </motion.div>
           </AnimatePresence>
-          <div className="flex gap-4 pt-12 md:pt-0">
+          <div className="absolute right-0 top-0 flex gap-4">
             <button onClick={handlePrev} className="group/button flex h-7 w-7 items-center justify-center rounded-full bg-gray-100 dark:bg-neutral-800">
-              <IconArrowLeft className="h-5 w-5 text-white transition-transform duration-300 group-hover/button:rotate-12" />
+              <IconArrowLeft className="h-5 w-5 text-black transition-transform duration-300 group-hover/button:rotate-12" />
             </button>
             <button onClick={handleNext} className="group/button flex h-7 w-7 items-center justify-center rounded-full bg-gray-100 dark:bg-neutral-800">
-              <IconArrowRight className="h-5 w-5 text-white transition-transform duration-300 group-hover/button:-rotate-12" />
+              <IconArrowRight className="h-5 w-5 text-black transition-transform duration-300 group-hover/button:-rotate-12" />
             </button>
           </div>
         </div>
@@ -146,9 +146,9 @@ const Reviews = () => {
     <div id="reviews" className="flex w-full flex-col items-center justify-center overflow-x-hidden py-12 md:py-16 lg:py-24">
       <Container>
         <div className="mx-auto flex max-w-xl flex-col items-center text-center">
-          <SectionBadge title="Apa Kata Klien Kami" />
+          <SectionBadge title="Kata Klien" />
           <h2 className="mt-6 font-heading text-2xl font-medium !leading-snug text-white md:text-4xl lg:text-5xl">
-            Lihat bagaimana Bisnovo telah membantu ratusan pebisnis memulai usaha online mereka.
+            Bisnovo Bantu Pebisnis Online Sukses
           </h2>
           <p className="mt-6 text-center text-base text-white md:text-lg">
             Testimoni dari klien kami yang telah merasakan manfaat layanan Bisnovo.
