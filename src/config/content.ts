@@ -10,7 +10,7 @@ import {
 
 // TYPE DEFINITIONS
 interface Plan {
-  id: 'basic' | 'pro' | 'reseller'; // Menambahkan 'reseller' ke tipe id
+  id: 'basic' | 'pro' | 'reseller';
   title: string;
   desc: string;
   monthlyPrice: number;
@@ -143,7 +143,7 @@ export const reviewsContent = {
   ] as Review[],
 };
 
-// PRICING CONTENT (KODE YANG SUDAH DIPERBARUI)
+// PRICING CONTENT (BADGE DIPINDAHKAN)
 export const pricingContent = {
   badge: "Paket Lengkap",
   headline: "Paket Bisnis Digital & Iklan Efektif",
@@ -155,7 +155,6 @@ export const pricingContent = {
       title: "Reseller Bisnovo",
       desc: "Gabung jadi reseller dan mulai bisnis online Anda tanpa modal, didukung penuh oleh kami.",
       monthlyPrice: 0,
-      badge: "Paling Populer",
       buttonText: "Gabung Gratis",
       features: [
         "Free Website",
@@ -170,6 +169,7 @@ export const pricingContent = {
       title: "Paket Bisnis Digital",
       desc: "Solusi lengkap untuk membangun kehadiran digital profesional dengan budget terjangkau.",
       monthlyPrice: 50,
+      badge: "Paling Populer", // <-- BADGE SEKARANG DI SINI
       buttonText: "Daftar Sekarang",
       features: [
         "Website Profesional",
