@@ -83,7 +83,7 @@ export const perksContent = {
       icon: TrendingUp,
     },
     {
-      title: "Freemateri Iklan",
+      title: "Free materi Iklan",
       description: "Klien dapat mengelola program iklan sendiri dengan materi iklan gratis yang kami sediakan.",
       icon: FileText,
     },
@@ -146,7 +146,7 @@ export const reviewsContent = {
 // PRICING CONTENT (Revisi Headline)
 export const pricingContent = {
   badge: "Paket Lengkap",
-  headline: "Mulai dari Rp50rb untuk Bisnis Digital & Iklan Efektif",
+  headline: " Paket Bisnis Digital & Iklan Efektif",
   subheadline:
     "Dapatkan semua yang Anda butuhkan untuk mulai bisnis online hari ini juga.",
   plans: [
