@@ -16,55 +16,65 @@ interface MetadataProps {
     modifiedTime?: string;
 }
 
+// Nama aplikasi bisa diatur di sini atau melalui environment variable
+const APP_NAME = "Bisnovo";
+
 export const generateMetadata = ({
-    title = `${process.env.NEXT_PUBLIC_APP_NAME} - Smart Social Media Marketing Platform`,
-    description = "Streamline your social media management with AI-powered analytics, scheduling, and content optimization. Get real-time insights, automate posts, and boost engagement across all platforms",
-    image = "/thumbnail.png",
+    // Menggunakan Judul Utama Bisnovo sebagai default title
+    title = "Bisnovo - Wujudkan Bisnis Online Impian Anda, Semudah Itu!",
+    // Menggunakan Tagline Bisnovo sebagai default description
+    description = "Solusi Lengkap, Terjangkau, dan Profesional untuk Pebisnis Pemula, Mahasiswa, hingga UMKM.",
+    image = "/thumbnail-bisnovo.png", // Disarankan untuk membuat thumbnail khusus
     icons = [
         {
             rel: "icon",
             type: "image/png",
             sizes: "32x32",
-            url: "/icons/favicon-32x32.png"
+            url: "/icons/favicon-32x32.png" // Ganti dengan favicon Bisnovo
         },
         {
             rel: "icon",
             type: "image/png",
             sizes: "16x16",
-            url: "/icons/favicon-16x16.png"
+            url: "/icons/favicon-16x16.png" // Ganti dengan favicon Bisnovo
         },
     ],
     noIndex = false,
+    // Keywords yang relevan dengan target pasar Bisnovo
     keywords = [
-        "AI content creation",
-        "content automation",
-        "AI writing assistant",
-        "content generation",
-        "artificial intelligence",
-        "content marketing"
+        "jasa pembuatan website",
+        "bisnis online",
+        "UMKM go digital",
+        "solusi digital UMKM",
+        "website untuk pemula",
+        "website mahasiswa",
+        "website terjangkau",
+        "profil bisnis online",
+        "jasa website profesional"
     ],
-    author = process.env.NEXT_PUBLIC_AUTHOR_NAME,
-    twitterHandle = "@yourtwitterhandle",
+    author = APP_NAME,
+    twitterHandle = "@bisnovo", // Ganti dengan handle Twitter Bisnovo
     type = "website",
-    locale = "en_US",
+    locale = "id_ID", // Mengubah locale ke Bahasa Indonesia
     alternates = {},
     publishedTime,
     modifiedTime
 }: MetadataProps = {}): Metadata => {
-    const metadataBase = new URL(process.env.NEXT_PUBLIC_APP_URL || "https://luro-ai.vercel.app");
+    // PASTIKAN untuk mengatur NEXT_PUBLIC_APP_URL di file .env Anda
+    const metadataBase = new URL(process.env.NEXT_PUBLIC_APP_URL || "https://bisnovo.com");
     const imageUrl = image ? new URL(image, metadataBase).toString() : null;
 
     return {
         metadataBase,
         title: {
-            template: `%s | ${process.env.NEXT_PUBLIC_APP_NAME}`,
+            template: `%s | ${APP_NAME}`,
             default: title
         },
         description,
         keywords,
         authors: [{ name: author }],
         creator: author,
-        publisher: process.env.NEXT_PUBLIC_APP_NAME,
+        publisher: APP_NAME,
         formatDetection: {
             email: false,
             address: false,
@@ -72,10 +82,10 @@ export const generateMetadata = ({
         },
         icons,
 
-        // OpenGraph
+        // OpenGraph untuk Facebook, LinkedIn, dll.
         openGraph: {
             type,
-            siteName: process.env.NEXT_PUBLIC_APP_NAME,
+            siteName: APP_NAME,
             title,
             description,
             ...(imageUrl && {
@@ -92,7 +102,7 @@ export const generateMetadata = ({
             ...(modifiedTime && { modifiedTime })
         },
 
-        // Twitter
+        // Twitter Card
         twitter: {
             card: imageUrl ? "summary_large_image" : "summary",
             site: twitterHandle,
@@ -115,7 +125,7 @@ export const generateMetadata = ({
             },
         },
 
-        // Verification
+        // Verification (isi value di file .env)
         verification: {
             google: process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION,
             yandex: process.env.NEXT_PUBLIC_YANDEX_VERIFICATION,
