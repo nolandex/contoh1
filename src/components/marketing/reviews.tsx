@@ -79,13 +79,13 @@ const AnimatedTestimonials = ({
               exit={{ y: -20, opacity: 0 }}
               transition={{ duration: 0.2, ease: "easeInOut" }}
             >
-              <h3 className="text-2xl font-bold text-black dark:text-white">
+              <h3 className="text-2xl font-bold text-white">
                 {testimonials[active].name}
               </h3>
-              <p className="text-sm text-gray-500 dark:text-neutral-500">
+              <p className="text-sm text-white">
                 {testimonials[active].designation}
               </p>
-              <blockquote className="mt-8 text-lg text-gray-500 dark:text-neutral-300">
+              <blockquote className="mt-8 text-lg text-white">
                 {testimonials[active].quote.split(" ").map((word, index) => (
                   <motion.span
                     key={index}
@@ -94,7 +94,7 @@ const AnimatedTestimonials = ({
                     transition={{ duration: 0.2, ease: "easeInOut", delay: 0.03 * index }}
                     className="inline-block"
                   >
-                    {word}&nbsp;
+                    {word} 
                   </motion.span>
                 ))}
               </blockquote>
@@ -102,10 +102,10 @@ const AnimatedTestimonials = ({
           </AnimatePresence>
           <div className="flex gap-4 pt-12 md:pt-0">
             <button onClick={handlePrev} className="group/button flex h-7 w-7 items-center justify-center rounded-full bg-gray-100 dark:bg-neutral-800">
-              <IconArrowLeft className="h-5 w-5 text-black transition-transform duration-300 group-hover/button:rotate-12 dark:text-neutral-400" />
+              <IconArrowLeft className="h-5 w-5 text-white transition-transform duration-300 group-hover/button:rotate-12" />
             </button>
             <button onClick={handleNext} className="group/button flex h-7 w-7 items-center justify-center rounded-full bg-gray-100 dark:bg-neutral-800">
-              <IconArrowRight className="h-5 w-5 text-black transition-transform duration-300 group-hover/button:-rotate-12 dark:text-neutral-400" />
+              <IconArrowRight className="h-5 w-5 text-white transition-transform duration-300 group-hover/button:-rotate-12" />
             </button>
           </div>
         </div>
@@ -128,10 +128,10 @@ const Reviews = () => {
       <Container>
         <div className="mx-auto flex max-w-xl flex-col items-center text-center">
           <SectionBadge title={reviewsContent.badge} />
-          <h2 className="mt-6 font-heading text-2xl font-medium !leading-snug md:text-4xl lg:text-5xl">
+          <h2 className="mt-6 font-heading text-2xl font-medium !leading-snug text-white md:text-4xl lg:text-5xl">
             {reviewsContent.headline}
           </h2>
-          <p className="mt-6 text-center text-base text-accent-foreground/80 md:text-lg">
+          <p className="mt-6 text-center text-base text-white md:text-lg">
             {reviewsContent.subheadline}
           </p>
         </div>
