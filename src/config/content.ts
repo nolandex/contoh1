@@ -10,7 +10,7 @@ import {
 
 // TYPE DEFINITIONS
 interface Plan {
-  id: 'basic' | 'pro';
+  id: 'basic' | 'pro' | 'reseller'; // Menambahkan 'reseller' ke tipe id
   title: string;
   desc: string;
   monthlyPrice: number;
@@ -143,13 +143,44 @@ export const reviewsContent = {
   ] as Review[],
 };
 
-// PRICING CONTENT (Revisi Headline)
+// PRICING CONTENT (KODE YANG SUDAH DIPERBARUI)
 export const pricingContent = {
   badge: "Paket Lengkap",
-  headline: " Paket Bisnis Digital & Iklan Efektif",
+  headline: "Paket Bisnis Digital & Iklan Efektif",
   subheadline:
     "Dapatkan semua yang Anda butuhkan untuk mulai bisnis online hari ini juga.",
   plans: [
+    {
+      id: "reseller",
+      title: "Reseller Bisnovo",
+      desc: "Gabung jadi reseller dan mulai bisnis online Anda tanpa modal, didukung penuh oleh kami.",
+      monthlyPrice: 0,
+      badge: "Paling Populer",
+      buttonText: "Gabung Gratis",
+      features: [
+        "Free Website",
+        "Subdomain & Hosting",
+        "Materi Promosi",
+        "Grup Reseller",
+      ],
+      orderUrl: `https://wa.me/${siteConfig.contactPhone}?text=Halo%20Bisnovo%2C%20saya%20tertarik%20untuk%20bergabung%20menjadi%20%22Reseller%20Bisnovo%22.%20Mohon%20informasinya.`,
+    },
+    {
+      id: "pro",
+      title: "Paket Bisnis Digital",
+      desc: "Solusi lengkap untuk membangun kehadiran digital profesional dengan budget terjangkau.",
+      monthlyPrice: 50,
+      buttonText: "Daftar Sekarang",
+      features: [
+        "Website Profesional",
+        "Free Domain my.id / biz.id dan Hosting",
+        "10 Konten Desain",
+        "Sosmed Boost",
+        "SEO Basic",
+        "Video Promosi",
+      ],
+      orderUrl: `https://wa.me/${siteConfig.contactPhone}?text=Halo%20Bisnovo%2C%20saya%20tertarik%20dengan%20paket%20%22Paket%20Bisnis%20Digital%22.%20Mohon%20informasinya.`,
+    },
     {
       id: "basic",
       title: "Kolab Iklan",
@@ -163,22 +194,6 @@ export const pricingContent = {
         "Konsultasi Iklan 1 Minggu",
       ],
       orderUrl: `https://wa.me/${siteConfig.contactPhone}?text=Halo%20Bisnovo%2C%20saya%20tertarik%20dengan%20paket%20%22Kolab%20Iklan%22.%20Mohon%20informasinya.`,
-    },
-    {
-      id: "pro",
-      title: "Paket Bisnis Digital",
-      desc: "Solusi lengkap untuk membangun kehadiran digital profesional dengan budget terjangkau.",
-      monthlyPrice: 50,
-      buttonText: "Daftar Sekarang",
-      features: [
-        "Website",
-        "Free Domain my.id / biz.id dan Hosting",
-        "10 Konten Desain",
-        "Sosmed Boost",
-        "SEO Basic",
-        "Video Promosi",
-      ],
-      orderUrl: `https://wa.me/${siteConfig.contactPhone}?text=Halo%20Bisnovo%2C%20saya%20tertarik%20dengan%20paket%20%22Paket%20Bisnis%20Digital%22.%20Mohon%20informasinya.`,
     },
   ] as Plan[],
 };
