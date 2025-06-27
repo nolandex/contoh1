@@ -28,7 +28,8 @@ export default function AppleCardsCarouselDemo() {
   ));
 
   return (
-    <div className="w-full h-full py-20 relative">
+    // --- REVISI DI SINI: Menambahkan id="layanan" ---
+    <div id="layanan" className="w-full h-full py-20 relative">
       <h2 className="max-w-7xl mx-auto text-center text-xl md:text-5xl font-bold text-white font-sans">
         Layanan Bisnovo
       </h2>
