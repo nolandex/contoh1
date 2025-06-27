@@ -6,7 +6,7 @@ import { Carousel, Card } from "@/components/ui/apple-cards-carousel";
 export default function AppleCardsCarouselDemo() {
   const [selectedCard, setSelectedCard] = useState<any | null>(null);
 
-  // Lock scroll pada html dan body saat modal terbuka
+  // Lock scroll saat modal terbuka
   useEffect(() => {
     if (selectedCard) {
       document.body.style.overflow = "hidden";
@@ -23,8 +23,7 @@ export default function AppleCardsCarouselDemo() {
   }, [selectedCard]);
 
   const cards = data.slice(0, 4).map((card, index) => (
-    <div key={card.src} onClick={() => setSelectedCard(card)}>
-      {/* Komponen Card sekarang tidak lagi menerima 'category' */}
+    <div key={card.title} onClick={() => setSelectedCard(card)}>
       <Card card={card} index={index} />
     </div>
   ));
@@ -37,15 +36,12 @@ export default function AppleCardsCarouselDemo() {
 
       <Carousel items={cards} />
 
-      {/* === KODE MODAL === */}
       {selectedCard && (
         <div
-          // Kontainer luar kini menjadi scrollable dan punya padding atas yang besar untuk menghindari navbar
           className="fixed inset-0 bg-black bg-opacity-80 flex justify-center items-start z-50 overflow-y-auto pt-24 px-4 pb-8"
           onClick={() => setSelectedCard(null)}
         >
           <div
-            // Modal kini tidak lagi mengatur tinggi/scroll internalnya sendiri
             className="bg-neutral-900 text-white rounded-2xl p-6 max-w-lg w-full shadow-lg relative"
             onClick={(e) => e.stopPropagation()}
           >
@@ -64,7 +60,7 @@ export default function AppleCardsCarouselDemo() {
   );
 }
 
-// Komponen DummyContent (Gambar dihapus)
+// DummyContent TANPA gambar
 interface DummyContentProps {
   title: string;
   customText: string;
@@ -76,17 +72,14 @@ const DummyContent: React.FC<DummyContentProps> = ({ title, customText }) => {
       <p className="text-white text-base md:text-lg font-sans whitespace-pre-line mb-4">
         {customText}
       </p>
-      {/* Gambar telah dihapus dari sini */}
     </div>
   );
 };
 
-// Data yang telah diperbarui
+// DATA SUDAH DIREVISI
 const data = [
   {
-    // 'category' dihapus
     title: "Program Reseller Bisnovo",
-    src: "/1.png",
     content: (
       <DummyContent
         title="Syarat dan Ketentuan - Program Reseller Bisnovo"
@@ -101,9 +94,7 @@ const data = [
     ),
   },
   {
-    // 'category' dihapus
     title: "Kolaborasi Bisnis & Pertukaran Ide",
-    src: "/2.png",
     content: (
       <DummyContent
         title="Syarat dan Ketentuan - Kolaborasi Bisnis"
@@ -116,14 +107,12 @@ const data = [
     ),
   },
   {
-    // 'category' dihapus
     title: "Program Iklan Bersama (Joint Ads)",
-    src: "/3.png",
     content: (
       <DummyContent
         title="Syarat dan Ketentuan - Iklan Bersama"
         customText={`1. Program ini ditujukan untuk partner yang ingin mempromosikan produk/jasa dengan biaya iklan kolektif.\n
-2. Minimal partisipasi dana per individu adalah minimal Rp100.000 untuk setiap siklus kampanye.\n
+2. Minimal partisipasi dana per individu adalah *minimal* Rp100.000 untuk setiap siklus kampanye.\n
 3. Target, audiens, dan media iklan akan ditentukan bersama atau oleh tim Bisnovo dengan transparansi laporan.\n
 4. Setiap peserta akan mendapatkan bukti iklan dan laporan performa (view, klik, dll) pasca kampanye.\n
 5. Tidak ada jaminan penjualan; tujuan iklan adalah untuk menjangkau lebih banyak calon pembeli.\n
@@ -133,19 +122,16 @@ const data = [
     ),
   },
   {
-    // 'category' dihapus, 'title' diubah
     title: "Paket Bisnis Digital",
-    src: "/4.png",
     content: (
       <DummyContent
         title="Syarat dan Ketentuan - Paket Bisnis Digital"
-        // Poin 3 dan 6 dihapus
         customText={`1. Klien akan mendapatkan: website landing page, desain konten sosial media, booster sosial media, copywriting, SEO dasar, dan video promosi.\n
 2. Semua materi dibuat berdasarkan brief yang disetujui oleh klien.\n
-3. Lama pengerjaan standar adalah 1 hari kerja setelah pembayaran dan brief lengkap diterima.\n
-4. Pembayaran minimal 50% di depan; sisa pelunasan sebelum final delivery.\n
-5. Hak cipta desain dan konten dimiliki oleh klien setelah pelunasan penuh, kecuali aset pihak ketiga.\n
-6. Bisnovo tidak bertanggung jawab atas penurunan performa jika konten atau website dimodifikasi oleh pihak luar tanpa konsultasi.`}
+4. Lama pengerjaan standar adalah 1 hari kerja setelah pembayaran dan brief lengkap diterima.\n
+5. Pembayaran minimal 50% di depan; sisa pelunasan sebelum final delivery.\n
+7. Hak cipta desain dan konten dimiliki oleh klien setelah pelunasan penuh, kecuali aset pihak ketiga.\n
+8. Bisnovo tidak bertanggung jawab atas penurunan performa jika konten atau website dimodifikasi oleh pihak luar tanpa konsultasi.`}
       />
     ),
   },
