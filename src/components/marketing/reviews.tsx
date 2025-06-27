@@ -1,5 +1,8 @@
+// Lokasi: src/components/marketing/reviews.tsx
+
 "use client";
 
+import { reviewsContent } from "@/config/content";
 import Container from "../global/container";
 import { SectionBadge } from "../ui/section-bade";
 import { IconArrowLeft, IconArrowRight } from "@tabler/icons-react";
@@ -76,13 +79,13 @@ const AnimatedTestimonials = ({
               exit={{ y: -20, opacity: 0 }}
               transition={{ duration: 0.2, ease: "easeInOut" }}
             >
-              <h3 className="text-2xl font-bold text-white">
+              <h3 className="text-2xl font-bold text-black dark:text-white">
                 {testimonials[active].name}
               </h3>
-              <p className="text-sm text-white/70">
+              <p className="text-sm text-gray-500 dark:text-neutral-500">
                 {testimonials[active].designation}
               </p>
-              <blockquote className="mt-8 text-lg text-white/90">
+              <blockquote className="mt-8 text-lg text-gray-500 dark:text-neutral-300">
                 {testimonials[active].quote.split(" ").map((word, index) => (
                   <motion.span
                     key={index}
@@ -98,11 +101,11 @@ const AnimatedTestimonials = ({
             </motion.div>
           </AnimatePresence>
           <div className="flex gap-4 pt-12 md:pt-0">
-            <button onClick={handlePrev} className="group/button flex h-7 w-7 items-center justify-center rounded-full bg-white/10 transition-colors hover:bg-white/20">
-              <IconArrowLeft className="h-5 w-5 text-white" />
+            <button onClick={handlePrev} className="group/button flex h-7 w-7 items-center justify-center rounded-full bg-gray-100 dark:bg-neutral-800">
+              <IconArrowLeft className="h-5 w-5 text-black transition-transform duration-300 group-hover/button:rotate-12 dark:text-neutral-400" />
             </button>
-            <button onClick={handleNext} className="group/button flex h-7 w-7 items-center justify-center rounded-full bg-white/10 transition-colors hover:bg-white/20">
-              <IconArrowRight className="h-5 w-5 text-white" />
+            <button onClick={handleNext} className="group/button flex h-7 w-7 items-center justify-center rounded-full bg-gray-100 dark:bg-neutral-800">
+              <IconArrowRight className="h-5 w-5 text-black transition-transform duration-300 group-hover/button:-rotate-12 dark:text-neutral-400" />
             </button>
           </div>
         </div>
@@ -112,47 +115,24 @@ const AnimatedTestimonials = ({
 };
 
 const Reviews = () => {
-  const testimonials: Testimonial[] = [
-    {
-      name: "Paket Setup Bisnis Online",
-      designation: "Klien Bisnovo",
-      src: "/testi1.jpg",
-      quote:
-        "Saya sangat puas! Saya mendapatkan website, konten sosial media, chatbot, dan video promosi hanya dalam waktu beberapa hari. Semua materi disesuaikan dengan brief saya, dan hasilnya profesional sekali!",
-    },
-    {
-      name: "Program Iklan Bersama",
-      designation: "Partner Iklan",
-      src: "/testi2.jpg",
-      quote:
-        "Dengan modal hanya Rp100.000, saya bisa ikut promosi bareng dan menjangkau lebih banyak calon pembeli. Ada laporan lengkapnya juga. Cocok banget buat pebisnis pemula!",
-    },
-    {
-      name: "Kolaborasi Bisnis",
-      designation: "Kolaborator UMKM",
-      src: "/testi3.jpg",
-      quote:
-        "Saya ikut program kolaborasi untuk sharing ide dan layanan. Ternyata banyak peluang bisnis yang bisa digarap bareng. Diskusinya aman dan saling menghargai. Recommended!",
-    },
-    {
-      name: "Program Reseller",
-      designation: "Reseller Aktif",
-      src: "/testi4.jpg",
-      quote:
-        "Saya daftar reseller gratis dan langsung dapat website katalog. Setiap penjualan saya dapat komisi. Tidak ribet, promosi juga dibantu, dan komisi cair tiap minggu. Mantap!",
-    },
+  const testimonials = [
+    { quote: "The attention to detail and innovative features have completely transformed our workflow. This is exactly what we've been looking for.", name: "Sarah Chen", designation: "Product Manager at TechFlow", src: "https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?q=80&w=3560&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" },
+    { quote: "Implementation was seamless and the results exceeded our expectations. The platform's flexibility is remarkable.", name: "Michael Rodriguez", designation: "CTO at InnovateSphere", src: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?q=80&w=3540&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" },
+    { quote: "This solution has significantly improved our team's productivity. The intuitive interface makes complex tasks simple.", name: "Emily Watson", designation: "Operations Director at CloudScale", src: "https://images.unsplash.com/photo-1623582854588-d60de57fa33f?q=80&w=3540&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" },
+    { quote: "Outstanding support and robust features. It's rare to find a product that delivers on all its promises.", name: "James Kim", designation: "Engineering Lead at DataPro", src: "https://images.unsplash.com/photo-1636041293178-808a6762ab39?q=80&w=3464&auto=format&fit=crop&ixlib-rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%D%3D" },
+    { quote: "The scalability and performance have been game-changing for our organization. Highly recommend to any growing business.", name: "Lisa Thompson", designation: "VP of Technology at FutureNet", src: "https://images.unsplash.com/photo-1624561172888-ac93c696e10c?q=80&w=2592&auto=format&fit=crop&ixlib-rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%D%3D" },
   ];
 
   return (
-    <div id="reviews" className="flex w-full flex-col items-center justify-center overflow-x-hidden bg-gray-900 py-12 md:py-16 lg:py-24">
+    <div id="reviews" className="flex w-full flex-col items-center justify-center overflow-x-hidden py-12 md:py-16 lg:py-24">
       <Container>
         <div className="mx-auto flex max-w-xl flex-col items-center text-center">
-          <SectionBadge title="Testimoni Klien & Partner" />
-          <h2 className="mt-6 font-heading text-2xl font-medium !leading-snug text-white md:text-4xl lg:text-5xl">
-            Apa Kata Mereka Tentang Bisnovo
+          <SectionBadge title={reviewsContent.badge} />
+          <h2 className="mt-6 font-heading text-2xl font-medium !leading-snug md:text-4xl lg:text-5xl">
+            {reviewsContent.headline}
           </h2>
-          <p className="mt-6 text-center text-base text-white/80 md:text-lg">
-            Bisnovo dipercaya oleh pelaku bisnis digital, UMKM, dan reseller di seluruh Indonesia.
+          <p className="mt-6 text-center text-base text-accent-foreground/80 md:text-lg">
+            {reviewsContent.subheadline}
           </p>
         </div>
       </Container>
