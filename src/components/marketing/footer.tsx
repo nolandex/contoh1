@@ -12,8 +12,6 @@ import { footerContent, siteConfig } from "@/config/content";
 import Container from "../global/container";
 import Wrapper from "../global/wrapper";
 import Link from "next/link";
-// --- REVISI DI SINI: Menambahkan ikon untuk sosial media ---
-import { Instagram, Facebook, Phone, Mail, Globe } from "lucide-react";
 
 // Definisikan tautan navigasi dan sosial media untuk footer
 const footerNavLinks = [
@@ -25,14 +23,14 @@ const footerNavLinks = [
 ];
 
 const socialLinks = [
-    { href: 'https://www.instagram.com/bisnovo', label: 'Instagram', Icon: Instagram },
-    { href: 'https://www.tiktok.com/@bisnovo', label: 'TikTok', Icon: Globe }, // Menggunakan ikon Globe untuk TikTok
-    { href: 'https://www.facebook.com/share/1H87XB9aw7/', label: 'Facebook', Icon: Facebook },
-    { href: 'https://api.whatsapp.com/send/?phone=6285156779923', label: 'WhatsApp', Icon: Phone },
+    { href: 'https://www.instagram.com/bisnovo', label: 'Instagram' },
+    { href: 'https://www.tiktok.com/@bisnovo', label: 'TikTok' },
+    { href: 'https://www.facebook.com/share/1H87XB9aw7/', label: 'Facebook' },
+    { href: 'https://api.whatsapp.com/send/?phone=6285156779923', label: 'WhatsApp' },
 ];
 
 const Footer = () => {
-    // Fungsi untuk smooth scroll, mirip seperti di Navbar
+    // Fungsi untuk smooth scroll
     const handleScroll = (e: React.MouseEvent<HTMLAnchorElement>) => {
         e.preventDefault();
         const href = e.currentTarget.href;
@@ -66,58 +64,64 @@ const Footer = () => {
                 </Wrapper>
             </Container>
 
-            {/* --- REVISI DI SINI: Bagian baru untuk Navigasi & Sosial Media --- */}
+            {/* --- REVISI: Layout diubah menjadi 3 kolom, dengan kolom tengah berisi 2 sub-kolom --- */}
             <Container>
-                <Wrapper className="py-10 grid grid-cols-1 md:grid-cols-3 gap-10 text-center md:text-left border-t border-border">
+                <Wrapper className="py-10 grid grid-cols-1 md:grid-cols-3 gap-8 text-center sm:text-left border-t border-border">
                     {/* Kolom 1: Brand Info */}
-                    <div className="flex flex-col items-center md:items-start">
+                    <div className="flex flex-col items-center sm:items-start">
                         <h3 className="text-xl font-bold">Bisnovo</h3>
                         <p className="text-sm text-secondary-foreground mt-2 max-w-xs">
                            Solusi digital untuk mengembangkan bisnis Anda ke level selanjutnya.
                         </p>
                     </div>
 
-                    {/* Kolom 2: Navigasi Cepat */}
-                    <div className="flex flex-col items-center md:items-start">
-                         <h4 className="text-lg font-semibold mb-3">Tautan Cepat</h4>
-                         <ul className="space-y-2">
-                            {footerNavLinks.map((link) => (
-                                <li key={link.href}>
-                                    <Link
-                                        href={link.href}
-                                        onClick={handleScroll}
-                                        className="text-sm text-secondary-foreground hover:text-primary transition-colors"
-                                    >
-                                        {link.label}
-                                    </Link>
-                                </li>
-                            ))}
-                         </ul>
+                    {/* Kolom 2: Berisi 2 sub-kolom untuk Tautan Cepat dan Sosial Media */}
+                    <div className="grid grid-cols-2 gap-8">
+                        {/* Sub-kolom 2a: Tautan Cepat */}
+                        <div className="flex flex-col items-center sm:items-start">
+                             <h4 className="text-lg font-semibold mb-3">Tautan Cepat</h4>
+                             <ul className="space-y-2">
+                                {footerNavLinks.map((link) => (
+                                    <li key={link.href}>
+                                        <Link
+                                            href={link.href}
+                                            onClick={handleScroll}
+                                            className="text-sm text-secondary-foreground hover:text-primary transition-colors"
+                                        >
+                                            {link.label}
+                                        </Link>
+                                    </li>
+                                ))}
+                             </ul>
+                        </div>
+                        {/* Sub-kolom 2b: Sosial Media */}
+                        <div className="flex flex-col items-center sm:items-start">
+                             <h4 className="text-lg font-semibold mb-3">Sosial Media</h4>
+                             <ul className="space-y-2">
+                                {socialLinks.map(({ href, label }) => (
+                                    <li key={href}>
+                                        <a
+                                            href={href}
+                                            target="_blank"
+                                            rel="noopener noreferrer"
+                                            className="text-sm text-secondary-foreground hover:text-primary transition-colors"
+                                        >
+                                            {label}
+                                        </a>
+                                    </li>
+                                ))}
+                             </ul>
+                        </div>
                     </div>
-
-                    {/* Kolom 3: Kontak & Sosial Media */}
-                    <div className="flex flex-col items-center md:items-start">
-                         <h4 className="text-lg font-semibold mb-3">Hubungi Kami</h4>
-                         <div className="flex items-center space-x-4 mb-4">
-                            {socialLinks.map(({ href, label, Icon }) => (
-                                <a
-                                    key={href}
-                                    href={href}
-                                    target="_blank"
-                                    rel="noopener noreferrer"
-                                    aria-label={label}
-                                    className="text-secondary-foreground hover:text-primary transition-colors"
-                                >
-                                    <Icon size={24} />
-                                </a>
-                            ))}
-                         </div>
+                    
+                    {/* Kolom 3: Kontak */}
+                    <div className="flex flex-col items-center sm:items-start">
+                         <h4 className="text-lg font-semibold mb-3">Kontak</h4>
                          <a
                             href="mailto:bisnovohq@gmail.com"
-                            className="flex items-center gap-2 text-sm text-secondary-foreground hover:text-primary transition-colors"
+                            className="text-sm text-secondary-foreground hover:text-primary transition-colors"
                          >
-                            <Mail size={16} />
-                            <span>bisnovohq@gmail.com</span>
+                            bisnovohq@gmail.com
                          </a>
                     </div>
                 </Wrapper>
