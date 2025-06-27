@@ -66,11 +66,11 @@ export const heroContent = {
   },
 };
 
-// PERKS CONTENT
+// PERKS CONTENT (Revisi Headline dan Subheadline)
 export const perksContent = {
   badge: "Solusi Lengkap",
-  headline: "Semua yang Anda Butuhkan untuk Mulai Bisnis Online",
-  subheadline: `${siteConfig.companyName} menyediakan semua tools yang dibutuhkan untuk memulai bisnis online tanpa ribet dan mahal.`,
+  headline: "Semua Dukungan untuk Memulai dan Menjalankan Bisnis Online",
+  subheadline: `${siteConfig.companyName} menyediakan website, konten, alat promosi, hingga tim support — semua yang Anda perlukan untuk bisnis online lebih mudah dan cepat berkembang.`,
   perks: [
     {
       title: "Support Reseller",
@@ -143,10 +143,10 @@ export const reviewsContent = {
   ] as Review[],
 };
 
-// PRICING CONTENT
+// PRICING CONTENT (Revisi Headline)
 export const pricingContent = {
   badge: "Paket Lengkap",
-  headline: "Hanya Mulai Rp50rb untuk Semua Ini",
+  headline: "Mulai dari Rp50rb untuk Bisnis Digital & Iklan Efektif",
   subheadline:
     "Dapatkan semua yang Anda butuhkan untuk mulai bisnis online hari ini juga.",
   plans: [
