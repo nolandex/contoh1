@@ -64,9 +64,9 @@ const Footer = () => {
                 </Wrapper>
             </Container>
 
-            {/* --- REVISI: Layout diubah menjadi 3 kolom, dengan kolom tengah berisi 2 sub-kolom --- */}
+            {/* --- REVISI: Layout diubah dan email digabung ke sosmed --- */}
             <Container>
-                <Wrapper className="py-10 grid grid-cols-1 md:grid-cols-3 gap-8 text-center sm:text-left border-t border-border">
+                <Wrapper className="py-10 grid grid-cols-1 md:grid-cols-2 gap-8 text-center sm:text-left border-t border-border">
                     {/* Kolom 1: Brand Info */}
                     <div className="flex flex-col items-center sm:items-start">
                         <h3 className="text-xl font-bold">Bisnovo</h3>
@@ -75,7 +75,7 @@ const Footer = () => {
                         </p>
                     </div>
 
-                    {/* Kolom 2: Berisi 2 sub-kolom untuk Tautan Cepat dan Sosial Media */}
+                    {/* Kolom 2: Berisi Tautan Cepat dan Kontak */}
                     <div className="grid grid-cols-2 gap-8">
                         {/* Sub-kolom 2a: Tautan Cepat */}
                         <div className="flex flex-col items-center sm:items-start">
@@ -94,9 +94,9 @@ const Footer = () => {
                                 ))}
                              </ul>
                         </div>
-                        {/* Sub-kolom 2b: Sosial Media */}
+                        {/* Sub-kolom 2b: Hubungi Kami (Sosmed + Email) */}
                         <div className="flex flex-col items-center sm:items-start">
-                             <h4 className="text-lg font-semibold mb-3">Sosial Media</h4>
+                             <h4 className="text-lg font-semibold mb-3">Hubungi Kami</h4>
                              <ul className="space-y-2">
                                 {socialLinks.map(({ href, label }) => (
                                     <li key={href}>
@@ -111,18 +111,13 @@ const Footer = () => {
                                     </li>
                                 ))}
                              </ul>
+                             <a
+                                href="mailto:bisnovohq@gmail.com"
+                                className="text-sm text-secondary-foreground hover:text-primary transition-colors mt-4"
+                             >
+                                bisnovohq@gmail.com
+                             </a>
                         </div>
-                    </div>
-                    
-                    {/* Kolom 3: Kontak */}
-                    <div className="flex flex-col items-center sm:items-start">
-                         <h4 className="text-lg font-semibold mb-3">Kontak</h4>
-                         <a
-                            href="mailto:bisnovohq@gmail.com"
-                            className="text-sm text-secondary-foreground hover:text-primary transition-colors"
-                         >
-                            bisnovohq@gmail.com
-                         </a>
                     </div>
                 </Wrapper>
             </Container>
