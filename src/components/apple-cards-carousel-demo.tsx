@@ -76,7 +76,7 @@ const DummyContent: React.FC<DummyContentProps> = ({ title, customText }) => {
         {customText}
       </p>
       <img
-        src="/1.jpeg"
+        src="/1.png" // Changed from .jpeg to .png
         alt={`${title} mockup`}
         className="mx-auto rounded-xl max-w-full h-auto"
         onError={(e) => {
@@ -89,19 +89,19 @@ const DummyContent: React.FC<DummyContentProps> = ({ title, customText }) => {
 };
 
 const data = [
-    {
+  {
     category: "Program",
     title: "Program Reseller Bisnovo",
-    src: "/1.jpeg",
+    src: "/1.png", // Changed from .jpeg to .png
     content: (
       <DummyContent
         title="Syarat dan Ketentuan - Program Reseller Bisnovo"
         customText={`1. Pendaftaran reseller gratis dan terbuka untuk umum.\n
-2. Reseller akan mendapatkan website katalog dan link promosi pribadi.\n
-3. Setiap penjualan melalui link akan mendapatkan komisi minimal Rp20.000 / produk, dan bisa lebih tergantung produk.\n
+2. Reseller akan mendapatkan website katalog dan alat / materi promosi.\n
+3. Profit +100% / produk, dan bisa lebih tergantung produk.\n
 4. Reseller dilarang menjual dengan harga di bawah harga resmi Bisnovo.\n
 5. Promosi dilarang mengandung unsur SARA, kebohongan, atau menjanjikan hal yang tidak ada dalam paket.\n
-6. Komisi akan dibayarkan setiap minggu (Senin–Jumat) melalui transfer bank atau e-wallet.\n
+6. Komisi akan dibayarkan melalui transfer bank atau e-wallet.\n
 7. Bisnovo berhak mencabut status reseller jika melanggar aturan.`}
       />
     ),
@@ -109,7 +109,7 @@ const data = [
   {
     category: "Kolaborasi",
     title: "Kolaborasi Bisnis & Pertukaran Ide",
-    src: "/2.jpeg",
+    src: "/2.png", // Changed from .jpeg to .png
     content: (
       <DummyContent
         title="Syarat dan Ketentuan - Kolaborasi Bisnis"
@@ -124,7 +124,7 @@ const data = [
   {
     category: "Iklan",
     title: "Program Iklan Bersama (Joint Ads)",
-    src: "/3.jpeg",
+    src: "/3.png", // Changed from .jpeg to .png
     content: (
       <DummyContent
         title="Syarat dan Ketentuan - Iklan Bersama"
@@ -141,14 +141,14 @@ const data = [
   {
     category: "Paket",
     title: "Paket Setup Bisnis Online",
-    src: "/4.jpeg",
+    src: "/4.png", // Changed from .jpeg to .png
     content: (
       <DummyContent
         title="Syarat dan Ketentuan - Paket Setup Bisnis"
-        customText={`1. Klien akan mendapatkan: website landing page, desain konten sosial media, booster sosial media, chatbot, copywriting, SEO dasar, dan video promosi.\n
+        customText={`1. Klien akan mendapatkan: website landing page, desain konten sosial media, booster sosial media, copywriting, SEO dasar, dan video promosi.\n
 2. Semua materi dibuat berdasarkan brief yang disetujui oleh klien.\n
 3. Revisi maksimal 2x untuk tiap item. Revisi tambahan akan dikenakan biaya tambahan.\n
-4. Lama pengerjaan standar adalah 3–7 hari kerja setelah pembayaran dan brief lengkap diterima.\n
+4. Lama pengerjaan standar adalah 1 hari kerja setelah pembayaran dan brief lengkap diterima.\n
 5. Pembayaran minimal 50% di depan; sisa pelunasan sebelum final delivery.\n
 6. File mentahan (editable) hanya diberikan jika termasuk dalam paket yang dipilih.\n
 7. Hak cipta desain dan konten dimiliki oleh klien setelah pelunasan penuh, kecuali aset pihak ketiga.\n
