@@ -9,24 +9,24 @@ import { IconArrowLeft, IconArrowRight } from "@tabler/icons-react";
 import { AnimatePresence, motion } from "framer-motion";
 import { useEffect, useState } from "react";
 
-type TeamMember = {
+type Testimonial = {
   quote: string;
   name: string;
   designation: string;
   src: string;
 };
 
-const AnimatedTeamShowcase = ({
-  teamMembers,
+const AnimatedTestimonials = ({
+  testimonials,
   autoplay = true,
 }: {
-  teamMembers: TeamMember[];
+  testimonials: Testimonial[];
   autoplay?: boolean;
 }) => {
   const [active, setActive] = useState(0);
 
-  const handleNext = () => setActive((prev) => (prev + 1) % teamMembers.length);
-  const handlePrev = () => setActive((prev) => (prev - 1 + teamMembers.length) % teamMembers.length);
+  const handleNext = () => setActive((prev) => (prev + 1) % testimonials.length);
+  const handlePrev = () => setActive((prev) => (prev - 1 + testimonials.length) % testimonials.length);
 
   useEffect(() => {
     if (!autoplay) return;
@@ -42,16 +42,16 @@ const AnimatedTeamShowcase = ({
       <div className="relative grid grid-cols-1 items-center gap-20 md:grid-cols-2">
         <div className="relative h-80 w-full">
           <AnimatePresence>
-            {teamMembers.map((member, index) => (
+            {testimonials.map((testimonial, index) => (
               <motion.div
-                key={member.src}
+                key={testimonial.src}
                 initial={{ opacity: 0, scale: 0.9, z: -100, rotate: randomRotateY() }}
                 animate={{
                   opacity: isActive(index) ? 1 : 0.7,
                   scale: isActive(index) ? 1 : 0.95,
                   z: isActive(index) ? 0 : -100,
                   rotate: isActive(index) ? 0 : randomRotateY(),
-                  zIndex: isActive(index) ? 40 : teamMembers.length - index,
+                  zIndex: isActive(index) ? 40 : testimonials.length - index,
                   y: isActive(index) ? [0, -40, 0] : 0,
                 }}
                 exit={{ opacity: 0, scale: 0.9, z: 100, rotate: randomRotateY() }}
@@ -59,8 +59,8 @@ const AnimatedTeamShowcase = ({
                 className="absolute inset-0 origin-bottom"
               >
                 <img
-                  src={member.src}
-                  alt={member.name}
+                  src={testimonial.src}
+                  alt={testimonial.name}
                   width={500}
                   height={500}
                   draggable={false}
@@ -80,13 +80,13 @@ const AnimatedTeamShowcase = ({
               transition={{ duration: 0.2, ease: "easeInOut" }}
             >
               <h3 className="text-2xl font-bold text-white">
-                {teamMembers[active].name}
+                {testimonials[active].name}
               </h3>
               <p className="text-sm text-white">
-                {teamMembers[active].designation}
+                {testimonials[active].designation}
               </p>
               <blockquote className="mt-8 text-lg text-white">
-                {teamMembers[active].quote.split(" ").map((word, index) => (
+                {testimonials[active].quote.split(" ").map((word, index) => (
                   <motion.span
                     key={index}
                     initial={{ filter: "blur(8px)", opacity: 0 }}
@@ -114,50 +114,50 @@ const AnimatedTeamShowcase = ({
   );
 };
 
-const Team = () => {
-  const teamMembers = [
+const Reviews = () => {
+  const testimonials = [
     {
-      quote: "Saya merancang konten visual yang menarik untuk memperkuat brand Anda di media sosial. Setiap desain dibuat untuk mencuri perhatian audiens!",
+      quote: "Program Reseller Bisnovo membuat saya bisa mulai bisnis tanpa modal besar. Website katalog dan link promosi sangat membantu penjualan saya!",
       name: "Andi Pratama",
-      designation: "Konten Desainer",
+      designation: "Reseller Bisnovo",
       src: "/images/a1.jpg",
     },
     {
-      quote: "Sebagai spesialis iklan digital, saya mengelola kampanye iklan yang tepat sasaran untuk menjangkau audiens yang relevan dengan biaya efektif.",
+      quote: "Kolaborasi Bisnis dengan Bisnovo membuka peluang baru untuk usaha saya. Sharing ide dengan tim mereka sangat menginspirasi!",
       name: "Siti Aisyah",
-      designation: "Spesialis Iklan Digital",
+      designation: "Owner UMKM Fashion",
       src: "/images/a2.jpg",
     },
     {
-      quote: "Saya membangun website yang responsif dan user-friendly untuk memastikan bisnis Anda memiliki kehadiran online yang profesional.",
+      quote: "Program Iklan Bersama membantu produk saya menjangkau audiens lebih luas dengan biaya terjangkau. Laporan performa iklannya sangat transparan!",
       name: "Budi Santoso",
-      designation: "Web Developer",
+      designation: "Entrepreneur Kuliner",
       src: "/images/a3.jpg",
     },
     {
-      quote: "Saya membantu merumuskan strategi pemasaran yang kreatif dan terukur untuk meningkatkan penjualan dan engagement bisnis Anda.",
+      quote: "Paket Setup Bisnis Online memberikan semua yang saya butuhkan untuk membangun kehadiran digital. Website dan konten promosinya sangat profesional!",
       name: "Rina Wijaya",
-      designation: "Strategis Pemasaran",
+      designation: "Pemilik Toko Online",
       src: "/images/a4.jpg",
     },
   ];
 
   return (
-    <div id="team" className="flex w-full flex-col items-center justify-center overflow-x-hidden py-12 md:py-16 lg:py-24">
+    <div id="reviews" className="flex w-full flex-col items-center justify-center overflow-x-hidden py-12 md:py-16 lg:py-24">
       <Container>
         <div className="mx-auto flex max-w-xl flex-col items-center text-center">
-          <SectionBadge title="Tim Kami" />
+          <SectionBadge title="Kata Klien" />
           <h2 className="mt-6 font-heading text-2xl font-medium !leading-snug text-white md:text-4xl lg:text-5xl">
-            Kenali Tim Profesional Bisnovo
+            Bisnovo Bantu Pebisnis Online Sukses
           </h2>
           <p className="mt-6 text-center text-base text-white md:text-lg">
-            Tim kami berdedikasi untuk membantu bisnis Anda sukses dengan keahlian di berbagai bidang.
+            Testimoni dari klien kami yang telah merasakan manfaat layanan Bisnovo.
           </p>
         </div>
       </Container>
-      <AnimatedTeamShowcase teamMembers={teamMembers} />
+      <AnimatedTestimonials testimonials={testimonials} />
     </div>
   );
 };
 
-export default Team;
+export default Reviews;
