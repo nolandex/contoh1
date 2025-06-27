@@ -66,11 +66,10 @@ export const heroContent = {
   },
 };
 
-// PERKS CONTENT (Revisi Headline dan Subheadline)
+// PERKS CONTENT
 export const perksContent = {
   badge: "Solusi Lengkap",
   headline: "Semua Dukungan untuk Memulai dan Menjalankan Bisnis Online",
-  subheadline: `${siteConfig.companyName} menyediakan website, konten, alat promosi, hingga tim support — semua yang Anda perlukan untuk bisnis online lebih mudah dan cepat berkembang.`,
   perks: [
     {
       title: "Support Reseller",
@@ -109,8 +108,6 @@ export const perksContent = {
 export const reviewsContent = {
   badge: "Testimoni",
   headline: "Apa Kata Klien Kami",
-  subheadline:
-    "Lihat bagaimana Bisnovo telah membantu ratusan pebisnis memulai usaha online mereka.",
   reviews: [
     {
       img: "https://i.pravatar.cc/150?u=reseller1",
@@ -143,12 +140,10 @@ export const reviewsContent = {
   ] as Review[],
 };
 
-// PRICING CONTENT (BADGE DIPINDAHKAN)
+// PRICING CONTENT
 export const pricingContent = {
   badge: "Paket Lengkap",
   headline: "Paket Bisnis Digital & Iklan Efektif",
-  subheadline:
-    "Dapatkan semua yang Anda butuhkan untuk mulai bisnis online hari ini juga.",
   plans: [
     {
       id: "reseller",
@@ -169,7 +164,7 @@ export const pricingContent = {
       title: "Paket Bisnis Digital",
       desc: "Solusi lengkap untuk membangun kehadiran digital profesional dengan budget terjangkau.",
       monthlyPrice: 50,
-      badge: "Paling Populer", // <-- BADGE SEKARANG DI SINI
+      badge: "Paling Populer",
       buttonText: "Daftar Sekarang",
       features: [
         "Website Profesional",
