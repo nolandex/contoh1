@@ -12,9 +12,6 @@ import Pricing from "./marketing/pricing";
 import Reviews from "./marketing/reviews";
 import Footer from "./marketing/footer";
 
-// ✅ Tambahan
-import GlobeCard from "./magicui/GlobeCard";
-
 export {
     Icons,
     Wrapper,
@@ -28,5 +25,4 @@ export {
     Reviews,
     Footer,
     Providers,
-    GlobeCard, // <- Ini tambahan barunya
 };
