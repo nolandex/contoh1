@@ -6,9 +6,9 @@ import { Providers } from "@/components";
 
 // Metadata lengkap untuk SEO dan favicon
 export const metadata = {
-  title: "Bisnovo - Mulai Bisnis Online dengan Cepat dan Lengkap",
+  title: "Bisnovo siap bangun Bisnis Profesional",
   description:
-    "Bisnovo membantu Anda membuat bisnis online lengkap — dari website, chatbot, konten sosmed, hingga sosmed booster untuk meningkatkan penjualan.",
+    "Gabung dalam program reseller, kembangkan ide melalui kolaborasi bisnis, dan nikmati keuntungan dari bagi hasil iklan bersama kami.",
   icons: {
     icon: [
       { url: "/favicon.ico", type: "image/x-icon" },
