@@ -12,6 +12,7 @@ import { footerContent, siteConfig } from "@/config/content";
 import Container from "../global/container";
 import Wrapper from "../global/wrapper";
 import Link from "next/link";
+import { Globe } from "@/components/magicui/globe"; // <-- Impor komponen Globe
 
 // Definisikan tautan navigasi dan sosial media untuk footer
 const footerNavLinks = [
@@ -63,6 +64,18 @@ const Footer = () => {
                     </Accordion>
                 </Wrapper>
             </Container>
+
+            {/* --- Bagian Globe --- */}
+            <Container>
+                 <div className="relative flex h-96 w-full flex-col items-center justify-center overflow-hidden rounded-lg border bg-background md:shadow-xl mb-10">
+                    <span className="pointer-events-none whitespace-pre-wrap bg-gradient-to-b from-black to-gray-300/80 bg-clip-text text-center text-6xl font-semibold leading-none text-transparent dark:from-white dark:to-slate-900/10 z-10">
+                        Jangkauan Global
+                    </span>
+                    <Globe className="top-20" />
+                    <div className="pointer-events-none absolute inset-0 h-full bg-[radial-gradient(circle_at_50%_200%,rgba(0,0,0,0.2),rgba(255,255,255,0))]" />
+                </div>
+            </Container>
+
 
             {/* --- REVISI: Layout diubah dan email digabung ke sosmed --- */}
             <Container>
@@ -135,3 +148,4 @@ const Footer = () => {
 };
 
 export default Footer;
+
