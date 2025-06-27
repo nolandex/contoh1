@@ -28,7 +28,6 @@ export default function AppleCardsCarouselDemo() {
   ));
 
   return (
-    // --- REVISI DI SINI: Menambahkan id="layanan" ---
     <div id="layanan" className="w-full h-full py-20 relative">
       <h2 className="max-w-7xl mx-auto text-center text-xl md:text-5xl font-bold text-white font-sans">
         Layanan Bisnovo
@@ -79,7 +78,7 @@ const data = [
   {
     title: "Program Reseller Bisnovo",
     category: "Reseller",
-    src: "/1.png",
+    src: "/1.jpg", // <-- .jpg
     content: (
       <DummyContent
         title="Syarat dan Ketentuan - Program Reseller Bisnovo"
@@ -96,7 +95,7 @@ const data = [
   {
     title: "Kolaborasi Bisnis & Pertukaran Ide",
     category: "Kolaborasi",
-    src: "/2.png",
+    src: "/2.jpg", // <-- .jpg
     content: (
       <DummyContent
         title="Syarat dan Ketentuan - Kolaborasi Bisnis"
@@ -111,7 +110,7 @@ const data = [
   {
     title: "Program Iklan Bersama (Joint Ads)",
     category: "Iklan",
-    src: "/3.png",
+    src: "/3.jpg", // <-- .jpg
     content: (
       <DummyContent
         title="Syarat dan Ketentuan - Iklan Bersama"
@@ -128,7 +127,7 @@ const data = [
   {
     title: "Paket Bisnis Digital",
     category: "Paket",
-    src: "/4.png",
+    src: "/4.jpg", // <-- .jpg
     content: (
       <DummyContent
         title="Syarat dan Ketentuan - Paket Bisnis Digital"
