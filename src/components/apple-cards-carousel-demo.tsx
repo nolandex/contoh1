@@ -6,7 +6,6 @@ import { Carousel, Card } from "@/components/ui/apple-cards-carousel";
 export default function AppleCardsCarouselDemo() {
   const [selectedCard, setSelectedCard] = useState<any | null>(null);
 
-  // Lock scroll saat modal terbuka
   useEffect(() => {
     if (selectedCard) {
       document.body.style.overflow = "hidden";
@@ -60,7 +59,6 @@ export default function AppleCardsCarouselDemo() {
   );
 }
 
-// DummyContent TANPA gambar
 interface DummyContentProps {
   title: string;
   customText: string;
@@ -76,10 +74,11 @@ const DummyContent: React.FC<DummyContentProps> = ({ title, customText }) => {
   );
 };
 
-// DATA SUDAH DIREVISI
 const data = [
   {
     title: "Program Reseller Bisnovo",
+    category: "Reseller",
+    src: "/1.png",
     content: (
       <DummyContent
         title="Syarat dan Ketentuan - Program Reseller Bisnovo"
@@ -95,6 +94,8 @@ const data = [
   },
   {
     title: "Kolaborasi Bisnis & Pertukaran Ide",
+    category: "Kolaborasi",
+    src: "/2.png",
     content: (
       <DummyContent
         title="Syarat dan Ketentuan - Kolaborasi Bisnis"
@@ -108,11 +109,13 @@ const data = [
   },
   {
     title: "Program Iklan Bersama (Joint Ads)",
+    category: "Iklan",
+    src: "/3.png",
     content: (
       <DummyContent
         title="Syarat dan Ketentuan - Iklan Bersama"
         customText={`1. Program ini ditujukan untuk partner yang ingin mempromosikan produk/jasa dengan biaya iklan kolektif.\n
-2. Minimal partisipasi dana per individu adalah *minimal* Rp100.000 untuk setiap siklus kampanye.\n
+2. Partisipasi dana per individu adalah minimal Rp100.000 untuk setiap siklus kampanye.\n
 3. Target, audiens, dan media iklan akan ditentukan bersama atau oleh tim Bisnovo dengan transparansi laporan.\n
 4. Setiap peserta akan mendapatkan bukti iklan dan laporan performa (view, klik, dll) pasca kampanye.\n
 5. Tidak ada jaminan penjualan; tujuan iklan adalah untuk menjangkau lebih banyak calon pembeli.\n
@@ -123,6 +126,8 @@ const data = [
   },
   {
     title: "Paket Bisnis Digital",
+    category: "Paket",
+    src: "/4.png",
     content: (
       <DummyContent
         title="Syarat dan Ketentuan - Paket Bisnis Digital"
