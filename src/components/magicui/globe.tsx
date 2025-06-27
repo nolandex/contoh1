@@ -1,13 +1,26 @@
-import { Globe } from "@/components/magicui/globe";
+"use client";
 
-export function GlobeDemo() {
-  return (
-    <div className="relative flex size-full max-w-lg items-center justify-center overflow-hidden rounded-lg border bg-background px-40 pb-40 pt-8 md:pb-60">
-      <span className="pointer-events-none whitespace-pre-wrap bg-gradient-to-b from-black to-gray-300/80 bg-clip-text text-center text-8xl font-semibold leading-none text-transparent dark:from-white dark:to-slate-900/10">
-        Globe
-      </span>
-      <Globe className="top-28" />
-      <div className="pointer-events-none absolute inset-0 h-full bg-[radial-gradient(circle_at_50%_200%,rgba(0,0,0,0.2),rgba(255,255,255,0))]" />
-    </div>
-  );
+import { useRef, useEffect } from "react";
+import dynamic from "next/dynamic";
+
+// Dinamis import globe.gl agar hanya digunakan di client
+const GlobeGL = dynamic(() => import("globe.gl"), { ssr: false });
+
+export function Globe({ className }: { className?: string }) {
+  const globeRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    if (!globeRef.current) return;
+
+    const globe = GlobeGL()(globeRef.current)
+      .globeImageUrl("//unpkg.com/three-globe/example/img/earth-dark.jpg")
+      .backgroundColor("rgba(0,0,0,0)");
+
+    // Cleanup
+    return () => {
+      globeRef.current?.replaceChildren();
+    };
+  }, []);
+
+  return <div ref={globeRef} className={className} style={{ width: "100%", height: "100%" }} />;
 }
