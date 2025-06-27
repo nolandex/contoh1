@@ -118,27 +118,27 @@ const Team = () => {
   const teamMembers = [
     {
       quote: "Saya merancang konten visual yang menarik untuk memperkuat brand Anda di media sosial. Setiap desain dibuat untuk mencuri perhatian audiens!",
-      name: "Rina Kurnia",
+      name: "Andi Pratama",
       designation: "Konten Desainer",
-      src: "/images/team1.jpg",
+      src: "/images/a1.jpg",
     },
     {
       quote: "Sebagai spesialis iklan digital, saya mengelola kampanye iklan yang tepat sasaran untuk menjangkau audiens yang relevan dengan biaya efektif.",
-      name: "Adi Nugroho",
+      name: "Siti Aisyah",
       designation: "Spesialis Iklan Digital",
-      src: "/images/team2.jpg",
+      src: "/images/a2.jpg",
     },
     {
       quote: "Saya membangun website yang responsif dan user-friendly untuk memastikan bisnis Anda memiliki kehadiran online yang profesional.",
-      name: "Bima Santoso",
+      name: "Budi Santoso",
       designation: "Web Developer",
-      src: "/images/team3.jpg",
+      src: "/images/a3.jpg",
     },
     {
       quote: "Saya membantu merumuskan strategi pemasaran yang kreatif dan terukur untuk meningkatkan penjualan dan engagement bisnis Anda.",
-      name: "Lina Permata",
+      name: "Rina Wijaya",
       designation: "Strategis Pemasaran",
-      src: "/images/team4.jpg",
+      src: "/images/a4.jpg",
     },
   ];
 
