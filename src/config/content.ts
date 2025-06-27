@@ -183,8 +183,8 @@ export const pricingContent = {
     },
     {
       id: "basic",
-      title: "Kolab Iklan",
-      desc: "Paket iklan terjangkau untuk meningkatkan jangkauan bisnis Anda melalui platform populer.",
+      title: "Program Iklan",
+      desc: "Kualitas program iklan terjamin. Bisnis yang diiklankan adalah hasil filter dari kolaborasi bisnis dengan demand dan profit tinggi.",
       monthlyPrice: 100,
       buttonText: "Mulai Sekarang",
       features: [
@@ -193,7 +193,7 @@ export const pricingContent = {
         "Laporan Performa Iklan",
         "Konsultasi Iklan 1 Minggu",
       ],
-      orderUrl: `https://wa.me/${siteConfig.contactPhone}?text=Halo%20Bisnovo%2C%20saya%20tertarik%20dengan%20paket%20%22Kolab%20Iklan%22.%20Mohon%20informasinya.`,
+      orderUrl: `https://wa.me/${siteConfig.contactPhone}?text=Halo%20Bisnovo%2C%20saya%20tertarik%20dengan%20paket%20%22Program%20Iklan%22.%20Mohon%20informasinya.`,
     },
   ] as Plan[],
 };
@@ -203,9 +203,9 @@ export const footerContent = {
   faqHeadline: "Pertanyaan Umum",
   faqs: [
     {
-      question: "Apa itu Kolab Iklan?",
+      question: "Apa itu Program Iklan?",
       answer:
-        "Kolab Iklan adalah paket untuk mempromosikan bisnis Anda melalui Meta Ads atau TikTok Ads dengan strategi terbukti dan laporan performa.",
+        "Program Iklan adalah paket untuk mempromosikan bisnis Anda melalui Meta Ads atau TikTok Ads. Kualitasnya terjamin karena bisnis yang diiklankan merupakan hasil filter dari kolaborasi bisnis dengan demand dan profit yang tinggi.",
     },
     {
       question: "Apakah website di Paket Bisnis Digital bisa kustom?",
